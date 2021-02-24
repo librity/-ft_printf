@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf4.c                                          :+:      :+:    :+:   */
+/*   printf_4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:07:41 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 16:05:33 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/24 17:58:24 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int main(void)
 
 void example4(void)
 {
-	printf(":%s:\n", "Hello, world!");
-	printf(":%15s:\n", "Hello, world!");
-	printf(":%.10s:\n", "Hello, world!");
-	printf(":%-10s:\n", "Hello, world!");
-	printf(":%-15s:\n", "Hello, world!");
-	printf(":%.15s:\n", "Hello, world!");
-	printf(":%15.10s:\n", "Hello, world!");
-	printf(":%-15.10s:\n", "Hello, world!");
+	printf("          '012345679123456'\n");
+	printf("%%s:       '%s'\n", "Hello, world!");
+	printf("%%15s:     '%15s'\n", "Hello, world!");
+	printf("%%.10s:    '%.10s'\n", "Hello, world!");
+	printf("%%-10s:    '%-10s'\n", "Hello, world!");
+	printf("%%-15s:    '%-15s'\n", "Hello, world!");
+	printf("%%.15s:    '%.15s'\n", "Hello, world!");
+	printf("%%15.10s:  '%15.10s'\n", "Hello, world!");
+	printf("%%-15.10s: '%-15.10s'\n", "Hello, world!");
 }

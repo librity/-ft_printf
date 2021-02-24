@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf3.c                                          :+:      :+:    :+:   */
+/*   printf_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:07:41 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 16:03:09 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/24 17:00:04 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 #include "printf.h"
 
 void example2(void);
-void example3(void);
-void example4(void);
-void example5(void);
-void example6(void);
 
 int main(void)
 {
@@ -33,4 +29,12 @@ void example2(void)
 
 	for (Fahrenheit = 0; Fahrenheit <= 300; Fahrenheit = Fahrenheit + 20)
 		printf("%3d %06.3f\n", Fahrenheit, (5.0 / 9.0) * (Fahrenheit - 32));
+
+	printf("---------------------\n");
+	for (Fahrenheit = 0; Fahrenheit <= 300; Fahrenheit = Fahrenheit + 20)
+		printf("%3d %07.3f\n", Fahrenheit, (5.0 / 9.0) * (Fahrenheit - 32));
+
+	printf("---------------------\n");
+	for (Fahrenheit = 0; Fahrenheit <= 300; Fahrenheit = Fahrenheit + 20)
+		printf("%3d %08.3f\n", Fahrenheit, (5.0 / 9.0) * (Fahrenheit - 32));
 }

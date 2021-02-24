@@ -6,7 +6,7 @@
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:07:41 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 16:11:53 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/24 17:53:27 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,23 @@ int main(void)
 
 void aroque_examples(void)
 {
+	int printf_return;
+
 	/* No placeholders */
-	printf("%05");
-	printf("%-05");
-	printf("%-5");
-	printf("Test - No Args\n");
+	printf_return = printf("%05");
+	printf("printf_return: %d\n", printf_return);
+
+	printf_return = printf("%-05");
+	printf("printf_return: %d\n", printf_return);
+
+	printf_return = printf("%-5");
+	printf("printf_return: %d\n", printf_return);
+
+	printf_return = printf("%%\n");
+	printf("printf_return: %d\n", printf_return);
+
+	printf_return = printf("Test - No Args\n");
+	printf("printf_return: %d\n", printf_return);
 
 	/* c conversion */
 	printf("%c\n", 'c');

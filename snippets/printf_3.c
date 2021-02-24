@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf4.c                                          :+:      :+:    :+:   */
+/*   printf_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:07:41 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 16:03:50 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/24 17:35:51 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void example3(void)
 	printf("Second number: %04d\n", 25);
 	printf("Third number: %i\n", 1234);
 	printf("Float number: %3.2f\n", 3.14159);
-	printf("Hexadecimal: %x\n", 255);
+	printf("Hexadecimal x: %x\n", 255);
+	printf("Hexadecimal X: %X\n", 255);
 	printf("Octal: %o\n", 255);
 	printf("Unsigned value: %u\n", 150);
 	printf("Just print the percentage sign %%\n", 10);
