@@ -1,3 +1,5 @@
+name: 42TESTERS-PRINTF
+
 on:
   push:
     branches: [master]
