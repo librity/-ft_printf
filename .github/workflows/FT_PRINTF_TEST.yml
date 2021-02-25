@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: make
+        run: make
+        working-directory: ./ft_printf/FT_PRINTF_TEST
+      - name: run_test
+        run: ./test
+        working-directory: ./ft_printf/FT_PRINTF_TEST
+      - name: results.txt
+        run: cat results.txt
+        working-directory: ./ft_printf/FT_PRINTF_TEST
