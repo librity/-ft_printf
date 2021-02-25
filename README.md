@@ -1,5 +1,9 @@
 # ft_printf
 
+[![42TESTERS-PRINTF](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml)
+[![FT_PRINTF_TEST](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml)
+[![PFT_2019](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml)
+
 42 Sao Paulo project - ft_printf
 
 ## Testers

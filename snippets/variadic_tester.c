@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   variadic_avarage.c                                 :+:      :+:    :+:   */
+/*   variadic_tester.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/24 03:11:35 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 03:11:38 by lpaulo-m@st      ###   ########.fr       */
+/*   Created: 2021/02/25 17:49:12 by lpaulo-m@st       #+#    #+#             */
+/*   Updated: 2021/02/25 18:00:43 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
 
-double average(int num, ...)
+void testit(int i, ...)
 {
+	va_list argptr;
+	va_start(argptr, i);
 
-	va_list valist;
-	double sum = 0.0;
-	int i;
-
-	/* initialize valist for num number of arguments */
-	va_start(valist, num);
-
-	/* access all the arguments assigned to valist */
-	for (i = 0; i < num; i++)
+	if (i == 0)
 	{
-		sum += va_arg(valist, int);
+		int n = va_arg(argptr, int);
+		printf("%d\n", n);
+	}
+	else
+	{
+		char *s = va_arg(argptr, char *);
+		printf("%s\n", s);
 	}
 
-	/* clean memory reserved for valist */
-	va_end(valist);
-
-	return sum / num;
+	va_end(argptr);
 }
 
 int main()
 {
-	printf("Average of 2, 3, 4, 5 = %f\n", average(4, 2, 3, 4, 5));
-	printf("Average of 5, 10, 15 = %f\n", average(3, 5, 10, 15));
+	testit(0, 0xFFFFFFFF);
+	testit(0, 42);
+	testit(1, NULL);
+	testit(1, "If you like pinha coladas!");
+	testit(1, "last call hail mary prescott touchdown");
 }

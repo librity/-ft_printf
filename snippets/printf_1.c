@@ -6,7 +6,7 @@
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:07:41 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 17:06:05 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/25 17:01:58 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,27 @@ int main(void)
 
 void example1(void)
 {
-	int a, b;
-	float c, d;
+	int first_int, second_int;
+	float first_float, second_float;
+	double first_double = 42.42;
 
-	a = 15;
-	b = a / 2;
-	printf("%d\n", b);
-	printf("%3d\n", b);
-	printf("%03d\n", b);
+	first_int = 15;
+	second_int = first_int / 2;
+	printf("int:    '%d'\n", second_int);
+	printf("int:    '%3d'\n", second_int);
+	printf("int:    '%03d'\n", second_int);
 
-	c = 15.3;
-	d = c / 3;
-	printf("%3.2f\n", d);
+	first_float = 15.3;
+	second_float = first_float / 3;
+	printf("float:  '%3.2f'\n", second_float);
 
-	c = 15.365;
-	d = c / 9;
-	printf("%3.2f\n", d);
-	printf("%3.3f\n", d);
-	printf("%06.2f\n", d);
-	printf("%2f\n", d);
-	printf("%f\n", d);
+	first_float = 15.365;
+	second_float = first_float / 9;
+	printf("float:  '%3.2f'\n", second_float);
+	printf("float:  '%3.3f'\n", second_float);
+	printf("float:  '%06.2f'\n", second_float);
+	printf("float:  '%2f'\n", second_float);
+	printf("float:  '%f'\n", second_float);
+
+	printf("double: '%e'\n", first_double);
 }
