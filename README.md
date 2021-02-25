@@ -1,6 +1,14 @@
 # ft_printf
 
- 42 Sao Paulo project - ft_printf
+42 Sao Paulo project - ft_printf
+
+## Testers
+
+Github Actions by [@wblech](https://github.com/wblech/42_github_actions)
+
+- https://github.com/cclaude42/PFT_2019
+- https://github.com/Mazoise/42TESTERS-PRINTF
+- https://github.com/cacharle/ft_printf_test
 
 ## Snippets
 

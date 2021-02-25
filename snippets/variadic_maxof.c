@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   variadic.c                                         :+:      :+:    :+:   */
+/*   variadic_maxof.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:04:14 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/24 03:11:06 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/24 23:51:59 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ int maxof(int n_args, ...)
 
 int main(void)
 {
-	printf("MAXOF123: %d\n", maxof(3, 1, 2, 3));
-	printf("MAXOF536: %d\n", maxof(3, 5, 3, 6));
-	printf("MAXOF937: %d\n", maxof(3, 9, 3, 7));
+	printf("MAXOF 1 2 3: %d\n", maxof(3, 1, 2, 3));
+	printf("MAXOF 5 3 6: %d\n", maxof(3, 5, 3, 6));
+	printf("MAXOF 9 3 7: %d\n", maxof(3, 9, 3, 7));
 
 	int i = 5;
 	int j[256];
 	j[42] = 24;
-	printf("%d\n", maxoff(3, i, j[42], 0));
+	printf("MAXOF 3 5 42 0: %d\n", maxoff(3, i, j[42], 0));
 
 	return (0);
 }
