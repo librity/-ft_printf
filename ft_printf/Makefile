@@ -6,7 +6,7 @@
 #    By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/02/26 02:15:08 by lpaulo-m@st      ###   ########.fr        #
+#    Updated: 2021/02/26 02:24:49 by lpaulo-m@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ ARCHIVE_AND_INDEX = ar -rcs
 
 HEADER = ft_printf.h
 
-SOURCES = ft_printf.c ft_vprintf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_strlen.c
+SOURCES = ft_printf.c ft_vprintf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
+	ft_strlen.c ft_count_digits.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 EXAMPLE_MAIN = example.c

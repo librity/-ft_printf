@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_count_digits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/24 03:00:55 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/26 02:28:40 by lpaulo-m@st      ###   ########.fr       */
+/*   Created: 2021/02/26 02:24:19 by lpaulo-m@st       #+#    #+#             */
+/*   Updated: 2021/02/26 02:28:33 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+size_t	ft_count_digits(int n)
+{
+	size_t digit_count;
 
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_putendl(char *s);
-void	ft_putnbr(int n);
-
-size_t	ft_strlen(const char *s);
-size_t	ft_count_digits(int n);
-
-int		ft_printf(const char *format, ...);
-int		ft_vprintf(const char *format, va_list elements);
-
-#endif
+	digit_count = 1;
+	while (n /= 10)
+		digit_count++;
+	return (digit_count);
+}
