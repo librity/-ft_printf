@@ -2,7 +2,7 @@ name: FT_PRINTF_TEST
 
 on:
   push:
-    branches: [master]
+    branches: [master, main]
 
 jobs:
   build:
