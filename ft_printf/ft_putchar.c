@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 17:50:09 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/02/07 23:02:08 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/07 00:22:45 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/02/26 02:13:34 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 /*
-** Executes f on all the contents.
+** Writes char c to file descriptor fd.
 */
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_putchar(char c)
 {
-	if (lst == NULL)
-		return ;
-	f(lst->content);
-	if (lst->next == NULL)
-		return ;
-	ft_lstiter(lst->next, f);
+	write(STDOUT_FILENO, &c, 1);
 }

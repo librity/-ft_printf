@@ -6,12 +6,27 @@
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:14:06 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/25 17:35:21 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/25 23:35:40 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
+
+void foo(char *fmt, ...);
+int formatStr(char *dest, const char *formatted_str, ...);
+
+int main(void)
+{
+	foo("sdc", "KBLAMO", 42, '[');
+
+	char f_str[50];
+	char name[] = "Johnson";
+	double height = 170.43;
+	formatStr(f_str, "Name: %s, Height: %f", name, height);
+	printf("%s\n", f_str);
+	return (0);
+}
 
 void foo(char *fmt, ...)
 {
@@ -32,7 +47,7 @@ void foo(char *fmt, ...)
 			printf("int %d\n", d);
 			break;
 		case 'c':
-			c = (char)va_arg(ap, int);
+			c = va_arg(ap, char);
 			printf("char %c\n", c);
 			break;
 		}
@@ -49,16 +64,4 @@ int formatStr(char *dest, const char *formatted_str, ...)
 	puts(dest);
 	va_end(pargs);
 	return n_chars;
-}
-
-int main(void)
-{
-	foo("sdc", "KBLAMO", 42, '[');
-
-	char f_str[50];
-	char name[] = "Johnson";
-	double height = 170.43;
-	formatStr(f_str, "Name: %s, Height: %f", name, height);
-	printf("%s\n", f_str);
-	return (0);
 }

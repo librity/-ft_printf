@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   continue.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 15:57:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/02/07 22:52:43 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/25 23:55:51 by lpaulo-m@st       #+#    #+#             */
+/*   Updated: 2021/02/25 23:56:27 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-/*
-** Adds element new to the end of lst.
-*/
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int main()
 {
-	if (lst == NULL)
-		return ;
-	if (*lst == NULL)
+	int a = 10;
+
+	while (a < 20)
 	{
-		*lst = new;
-		return ;
+		if (a == 15)
+		{
+			a = a + 1;
+			continue;
+		}
+
+		printf("value of a: %d\n", a);
+		a++;
 	}
-	ft_lstlast(*lst)->next = new;
+
+	return 0;
 }

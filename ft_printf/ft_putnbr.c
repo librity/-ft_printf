@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 00:35:54 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/02/08 00:46:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/02/26 00:51:08 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 /*
 ** Writes ascii representation of number to file descriptor fd.
 */
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr(int n)
 {
 	long int number;
 
 	number = n;
 	if (number < 0)
 	{
-		ft_putchar_fd('-', fd);
+		ft_putchar('-');
 		number *= -1;
 	}
 	if (number >= 10)
-		ft_putnbr_fd(number / 10, fd);
-	ft_putchar_fd('0' + (number % 10), fd);
+		ft_putnbr(number / 10);
+	ft_putchar('0' + (number % 10));
 }

@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/02/07 22:33:13 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/02 23:02:22 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/02/26 02:14:34 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 /*
-** Checks if c is an ASCII letter or a number.
+** Counts how many chars string s has (no \0).
 */
 
-int	ft_isalnum(int c)
+size_t	ft_strlen(const char *s)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	size_t length;
+
+	length = 0;
+	while (s[length])
+		length++;
+	return (length);
 }

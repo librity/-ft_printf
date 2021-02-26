@@ -6,14 +6,14 @@
 /*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 03:11:35 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/25 17:36:08 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/25 23:12:48 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
 
-double int_average(int num, ...)
+double int_average(unsigned int num, ...)
 {
 
 	va_list valist;
@@ -23,9 +23,7 @@ double int_average(int num, ...)
 	va_start(valist, num);
 
 	for (i = 0; i < num; i++)
-	{
 		sum += va_arg(valist, int);
-	}
 
 	va_end(valist);
 

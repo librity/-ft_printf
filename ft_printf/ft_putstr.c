@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 15:29:43 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/02/08 00:34:50 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/07 00:22:45 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/02/26 00:51:11 by lpaulo-m@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 /*
-** Counts how many nodes are in a list.
+** Writes string s to file descriptor fd without null terminator.
 */
 
-int	ft_lstsize(t_list *lst)
+void	ft_putstr(char *s)
 {
-	int list_size;
-
-	if (lst == NULL)
-		return (0);
-	list_size = 1;
-	while (lst->next != NULL)
-	{
-		list_size++;
-		lst = lst->next;
-	}
-	return (list_size);
+	if (s == NULL)
+		return ;
+	while (*s)
+		ft_putchar(*s++);
 }
