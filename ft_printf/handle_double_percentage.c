@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   continue.c                                         :+:      :+:    :+:   */
+/*   handle_double_percentage.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/25 23:55:51 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/26 03:13:23 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/26 02:58:23 by lpaulo-m@st       #+#    #+#             */
+/*   Updated: 2021/02/26 03:14:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main()
+bool	handle_double_percentage(const char **format, int *chars_printed)
 {
-	int a = 10;
-
-	while (a < 20)
-	{
-		if (a == 15)
-		{
-			a = a + 1;
-			continue;
-		}
-
-		printf("value of a: %d\n", a);
-		a++;
-	}
-
-	return 0;
+	if (!(**format == '%' && *(*(format) + 1) == '%'))
+		return (false);
+	ft_putchar(**format);
+	*format += 2;
+	(*chars_printed)++;
+	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   example.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaulo-m@student.42sp.org.br <lpaulo-m>    +#+  +:+       +#+        */
+/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 19:27:11 by lcandido          #+#    #+#             */
-/*   Updated: 2021/02/26 02:33:37 by lpaulo-m@st      ###   ########.fr       */
+/*   Updated: 2021/02/26 03:12:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int main(void)
 	printf("printf_return: %d\n", printf_return);
 	printf("-----------------------\n");
 
-	printf_return = printf("%s\n", "TESTING 123");
+	printf_return = printf("%s\n", "This is a string");
 	printf("printf_return: %d\n", printf_return);
-	printf_return = ft_printf("%s\n", "TESTING 123");
+	printf_return = ft_printf("%s\n", "This is a string");
 	printf("printf_return: %d\n", printf_return);
 	printf("-----------------------\n");
 
-	printf_return = printf("%s %%\n", "TESTING 123");
+	printf_return = printf("%s %%\n", "I like turtles");
 	printf("printf_return: %d\n", printf_return);
-	printf_return = ft_printf("%s %%\n", "TESTING 123");
+	printf_return = ft_printf("%s %%\n", "I like turtles");
 	printf("printf_return: %d\n", printf_return);
 	printf("-----------------------\n");
 

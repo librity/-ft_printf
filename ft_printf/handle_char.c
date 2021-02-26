@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   continue.c                                         :+:      :+:    :+:   */
+/*   handle_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/25 23:55:51 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/26 03:13:23 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/14 01:52:14 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/02/26 03:13:13 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main()
+void	handle_char(int *chars_printed, unsigned char print_me)
 {
-	int a = 10;
-
-	while (a < 20)
-	{
-		if (a == 15)
-		{
-			a = a + 1;
-			continue;
-		}
-
-		printf("value of a: %d\n", a);
-		a++;
-	}
-
-	return 0;
+	ft_putchar(print_me);
+	(*chars_printed)++;
 }

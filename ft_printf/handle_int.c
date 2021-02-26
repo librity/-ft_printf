@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   continue.c                                         :+:      :+:    :+:   */
+/*   handle_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/25 23:55:51 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/26 03:13:23 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/26 03:00:06 by lpaulo-m@st       #+#    #+#             */
+/*   Updated: 2021/02/26 03:13:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main()
+void	handle_int(int *chars_printed, int print_me)
 {
-	int a = 10;
-
-	while (a < 20)
-	{
-		if (a == 15)
-		{
-			a = a + 1;
-			continue;
-		}
-
-		printf("value of a: %d\n", a);
-		a++;
-	}
-
-	return 0;
+	ft_putnbr(print_me);
+	if (print_me < 0)
+		(*chars_printed)++;
+	*chars_printed += ft_count_digits(print_me);
 }
