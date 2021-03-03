@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 04:06:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 06:31:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,21 @@ bool	is_a_flag(char current_char)
 	return (false);
 }
 
-char	get_current_conversion(const char *format)
+int		find_current_conversion_position(const char *format)
 {
-	while (is_a_flag(*format) && *format != '\0')
-		format++;
-	return (*format);
+	int conversion_posistion;
+
+	conversion_posistion = 0;
+	while (is_a_flag(format[conversion_posistion]) &&
+			format[conversion_posistion] != '\0')
+		conversion_posistion++;
+	return (conversion_posistion);
 }
 
 int		ft_vprintf(const char *format, va_list elements)
 {
-	int		chars_printed;
-	char	conversion;
+	int	chars_printed;
+	int	conversion_pos;
 
 	chars_printed = 0;
 	while (*format != '\0')
@@ -44,13 +48,14 @@ int		ft_vprintf(const char *format, va_list elements)
 			continue;
 		if (handled_double_percentage(&format, &chars_printed))
 			continue;
-		format++;
-		conversion = get_current_conversion(format);
-		if (handled_string(&format, &chars_printed, conversion, elements))
+		conversion_pos = find_current_conversion_position(++format);
+		if (handled_string(&format, &chars_printed, conversion_pos, elements))
 			continue;
-		if (handled_int(&format, &chars_printed, conversion, elements))
+		if (handled_char(&format, &chars_printed, conversion_pos, elements))
 			continue;
-		if (handled_char(&format, &chars_printed, conversion, elements))
+		if (handled_int(&format, &chars_printed, conversion_pos, elements))
+			continue;
+		if (handled_uint(&format, &chars_printed, conversion_pos, elements))
 			continue;
 	}
 	return (chars_printed);

@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/03 03:34:08 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/03 06:33:30 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ HEADER = ft_printf.h
 
 SOURCES = ft_printf.c ft_vprintf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
 	ft_strlen.c ft_count_digits.c handled_char.c handled_double_percentage.c \
-	handled_int.c handled_string.c handled_unformatted.c
+	handled_int.c handled_string.c handled_unformatted.c handled_uint.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 EXAMPLE_MAIN = example.c
