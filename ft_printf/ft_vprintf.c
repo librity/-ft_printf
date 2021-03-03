@@ -6,37 +6,52 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 03:18:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 04:06:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_vprintf(const char *format, va_list elements)
+bool	is_a_flag(char current_char)
 {
-	int chars_printed;
+	if (current_char == '.')
+		return (true);
+	if (current_char == '-')
+		return (true);
+	if (current_char == '*')
+		return (true);
+	if (current_char == '0')
+		return (true);
+	return (false);
+}
+
+char	get_current_conversion(const char *format)
+{
+	while (is_a_flag(*format) && *format != '\0')
+		format++;
+	return (*format);
+}
+
+int		ft_vprintf(const char *format, va_list elements)
+{
+	int		chars_printed;
+	char	conversion;
 
 	chars_printed = 0;
 	while (*format != '\0')
 	{
-		if (handle_unformatted(&format, &chars_printed))
+		if (handled_unformatted(&format, &chars_printed))
 			continue;
-		if (handle_double_percentage(&format, &chars_printed))
+		if (handled_double_percentage(&format, &chars_printed))
 			continue;
-		switch (*(++format))
-		{
-		case 's':
-			handle_string(&chars_printed, va_arg(elements, char *));
-			break ;
-		case 'd':
-		case 'i':
-			handle_int(&chars_printed, va_arg(elements, int));
-			break ;
-		case 'c':
-			handle_char(&chars_printed, (unsigned char)va_arg(elements, int));
-			break ;
-		}
 		format++;
+		conversion = get_current_conversion(format);
+		if (handled_string(&format, &chars_printed, conversion, elements))
+			continue;
+		if (handled_int(&format, &chars_printed, conversion, elements))
+			continue;
+		if (handled_char(&format, &chars_printed, conversion, elements))
+			continue;
 	}
 	return (chars_printed);
 }

@@ -12,7 +12,8 @@
 	"stdbool.h": "c",
 	"fcntl.h": "c",
 	"resource.h": "c",
-	"random": "c"
+	"random": "c",
+	"ft_printf.h": "c"
 },
   "editor.detectIndentation": false
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 03:17:11 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 04:04:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,21 @@ void	ft_putnbr(int n);
 size_t	ft_strlen(const char *s);
 size_t	ft_count_digits(int n);
 
-bool	handle_unformatted(const char **format, int *chars_printed);
-bool	handle_double_percentage(const char **format, int *chars_printed);
+bool	handled_unformatted(const char **format, int *chars_printed);
+bool	handled_double_percentage(const char **format, int *chars_printed);
 
-void	handle_string(int *chars_printed, char *print_me);
-void	handle_char(int *chars_printed, unsigned char print_me);
-void	handle_int(int *chars_printed, int print_me);
+bool	handled_string(const char **format,
+					int *chars_printed,
+					char current_conversion,
+					va_list elements);
+bool	handled_char(const char **format,
+					int *chars_printed,
+					char current_conversion,
+					va_list elements);
+bool	handled_int(const char **format,
+					int *chars_printed,
+					char current_conversion,
+					va_list elements);
 
 int		ft_printf(const char *format, ...);
 int		ft_vprintf(const char *format, va_list elements);
