@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 07:46:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 08:04:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_vprintf(const char *format, va_list elements)
 	chars_printed = 0;
 	while (*format != '\0')
 	{
-		if (handled_unformatted(&format, &chars_printed))
+		if (handled_no_conversion(&format, &chars_printed))
 			continue;
 		if (handled_double_percentage(&format, &chars_printed))
 			continue;
@@ -58,6 +58,8 @@ int		ft_vprintf(const char *format, va_list elements)
 		if (handled_uint(&format, &chars_printed, conversion_pos, elements))
 			continue;
 		if (handled_pointer(&format, &chars_printed, conversion_pos, elements))
+			continue;
+		if (handled_hex(&format, &chars_printed, conversion_pos, elements))
 			continue;
 	}
 	return (chars_printed);

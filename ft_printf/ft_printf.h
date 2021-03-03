@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 07:36:06 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 08:04:50 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	ft_strlen(const char *s);
 size_t	ft_count_digits(int n);
 size_t	ft_hex_count_digits(size_t n);
 
-bool	handled_unformatted(const char **format, int *chars_printed);
+bool	handled_no_conversion(const char **format, int *chars_printed);
 bool	handled_double_percentage(const char **format, int *chars_printed);
 
 bool	handled_string(const char **format,
@@ -50,6 +50,10 @@ bool	handled_uint(const char **format,
 					int conversion_posistion,
 					va_list elements);
 bool	handled_pointer(const char **format,
+						int *chars_printed,
+						int conversion_posistion,
+						va_list elements);
+bool	handled_hex(const char **format,
 						int *chars_printed,
 						int conversion_posistion,
 						va_list elements);

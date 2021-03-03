@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:16:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 07:42:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 08:05:34 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ int main(void)
 	printf_return = printf("%p\n", &printf_return);
 	printf("printf_return: %d\n", printf_return);
 	printf_return = ft_printf("%p\n", &printf_return);
+	printf("printf_return: %d\n", printf_return);
+	printf("-----------------------\n");
+
+	printf_return = printf("%x\n", 424242424);
+	printf("printf_return: %d\n", printf_return);
+	printf_return = ft_printf("%x\n", 424242424);
+	printf("printf_return: %d\n", printf_return);
+	printf("-----------------------\n");
+
+	printf_return = printf("%X\n", 424242424);
+	printf("printf_return: %d\n", printf_return);
+	printf_return = ft_printf("%X\n", 424242424);
 	printf("printf_return: %d\n", printf_return);
 	printf("-----------------------\n");
 
