@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:22:53 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 20:21:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # define DOWNCASE_HEX_BASE "0123456789abcdef"
 # define UPPERCASE_HEX_BASE "0123456789ABCDEF"
+
+int	ft_isdigit(int c);
 
 size_t	ft_strlen(const char *s);
 void	ft_putchar(char c);

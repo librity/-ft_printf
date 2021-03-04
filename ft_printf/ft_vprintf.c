@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:01:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 20:22:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	is_a_flag(char current_char)
 		return (true);
 	if (current_char == '*')
 		return (true);
-	if (current_char == '0')
+	if (ft_isdigit(current_char))
 		return (true);
 	return (false);
 }
