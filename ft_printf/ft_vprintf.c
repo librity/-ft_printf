@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 08:04:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/03 18:04:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	is_a_flag(char current_char)
+static bool	is_a_flag(char current_char)
 {
 	if (current_char == '.')
 		return (true);
@@ -25,7 +25,7 @@ bool	is_a_flag(char current_char)
 	return (false);
 }
 
-int		find_current_conversion_position(const char *format)
+static int	find_current_conversion_position(const char *format)
 {
 	int conversion_posistion;
 
@@ -36,7 +36,7 @@ int		find_current_conversion_position(const char *format)
 	return (conversion_posistion);
 }
 
-int		ft_vprintf(const char *format, va_list elements)
+int			ft_vprintf(const char *format, va_list elements)
 {
 	int	chars_printed;
 	int	conversion_pos;
