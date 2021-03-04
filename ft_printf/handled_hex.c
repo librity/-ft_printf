@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 18:58:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 19:47:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ bool	handled_hex(const char **format,
 {
 	unsigned int print_me;
 
-	if (*format[conversion_posistion] != 'x' &&
-		*format[conversion_posistion] != 'X')
+	if ((*format)[conversion_posistion] != 'x' &&
+		(*format)[conversion_posistion] != 'X')
 		return (false);
 	print_me = va_arg(elements, unsigned int);
-	if (*format[conversion_posistion] == 'x')
+	if ((*format)[conversion_posistion] == 'x')
 		ft_puthex_downcase(print_me);
 	else
 		ft_puthex_uppercase(print_me);

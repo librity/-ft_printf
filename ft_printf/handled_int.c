@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:18:40 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 19:48:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ bool	handled_int(const char **format,
 {
 	int print_me;
 
-	if (*format[conversion_posistion] != 'd' &&
-		*format[conversion_posistion] != 'i')
+	if ((*format)[conversion_posistion] != 'd' &&
+		(*format)[conversion_posistion] != 'i')
 		return (false);
 	print_me = va_arg(elements, int);
 	ft_putnbr(print_me);

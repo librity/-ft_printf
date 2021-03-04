@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:18:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 19:48:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	handled_uint(const char **format,
 {
 	unsigned long print_me;
 
-	if (*format[conversion_posistion] != 'u')
+	if ((*format)[conversion_posistion] != 'u')
 		return (false);
 	print_me = (unsigned long)va_arg(elements, void *);
 	ft_putnbr_base(print_me, "0123456789");
