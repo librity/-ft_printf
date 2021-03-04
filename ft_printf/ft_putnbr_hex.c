@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 07:42:34 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:16:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 18:46:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static bool	is_invalid_base(const char *base, const size_t base_length)
 	return (false);
 }
 
-static void	print_number_with_base(unsigned long number,
+static void	print_number_with_base(unsigned int number,
 									const size_t base_length,
 									const char *base)
 {
@@ -50,7 +50,7 @@ static void	print_number_with_base(unsigned long number,
 	ft_putchar(base[number % base_length]);
 }
 
-void		ft_putnbr_base(unsigned long number, const char *base)
+void		ft_putnbr_hex(unsigned int number, const char *base)
 {
 	const size_t	base_length = ft_strlen(base);
 

@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_count_digits.c                              :+:      :+:    :+:   */
+/*   example_8.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 07:39:06 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/02/24 03:07:41 by lpaulo-m@st       #+#    #+#             */
+/*   Updated: 2021/03/04 18:03:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <limits.h>
+#include <stdio.h>
+#include "printf.h"
 
-size_t	ft_hex_count_digits(size_t n)
+void example6(void);
+
+int main(void)
 {
-	size_t digit_count;
+	printf("---------------------\n");
+	example6();
+	printf("---------------------\n");
+}
 
-	digit_count = 1;
-	while (n /= 16)
-		digit_count++;
-	return (digit_count);
+void example6(void)
+{
+	int ch;
+
+	for (ch = -129; ch <= 129; ch++)
+		printf("ASCII value = '%d', Character = '%c'\n", ch, ch);
+
+	for (ch = -129; ch <= 129; ch++)
+		ft_printf("ASCII value = '%d', Character = '%c'\n", ch, ch);
 }

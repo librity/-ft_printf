@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handled_string.c                                   :+:      :+:    :+:   */
+/*   ft_count_uldigit_hex.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 17:17:26 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/04 19:24:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	handled_string(const char **format,
-						int *chars_printed,
-						int conversion_posistion,
-						va_list elements)
+int	ft_count_uldigits_hex(unsigned long number)
 {
-	char *print_me;
+	int digit_count;
 
-	if (*format[conversion_posistion] != 's')
-		return (false);
-	print_me = va_arg(elements, char *);
-	ft_putstr(print_me);
-	*chars_printed += ft_strlen(print_me);
-	(*format) += conversion_posistion + 1;
-	return (true);
+	digit_count = 1;
+	while (number /= 16)
+		digit_count++;
+	return (digit_count);
 }
