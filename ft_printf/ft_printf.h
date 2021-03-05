@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 22:25:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 23:56:30 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct	s_handle_int
 	char			*flags;
 	unsigned int	digit_count;
 	unsigned int	char_count;
+	bool			print_as_padding;
 	bool			has_minimum_width;
-	bool			reached_minimum_width;
 	unsigned int	minimum_width;
 	bool			has_precision;
 	unsigned int	precision;
@@ -50,6 +50,11 @@ typedef struct	s_handle_int
 int				ft_printf(const char *format, ...);
 void			ft_vprintf(t_printf *print_control);
 
+void			initialize_print_control(t_printf *print_control,
+											const char *format);
+void			initialize_int_control(t_printf *print_control,
+											t_handle_int *int_control);
+
 bool			handled_no_conversion(t_printf *print_control);
 bool			handled_double_percentage(t_printf *print_control);
 
@@ -60,10 +65,8 @@ bool			handled_u(t_printf *print_control);
 bool			handled_p(t_printf *print_control);
 bool			handled_hex(t_printf *print_control);
 
-void			initialize_print_control(t_printf *print_control,
-											const char *format);
-void			initialize_int_control(t_printf *print_control,
-											t_handle_int *int_control);
+void			parse_flags(t_printf *print_control, t_handle_int *int_control);
+
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
 void			ft_putendl(char *s);
@@ -110,7 +113,8 @@ void			ft_strdel(char **delete_me);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin_and_free(char *free_me, char const *dont_free_me);
 char			*ft_strjoin_and_free_free(char *free_me, char *free_me_too);
-char			*ft_strjoin_and_del(char *delete_me, char const *dont_delete_me);
+char			*ft_strjoin_and_del(char *delete_me,
+									char const *dont_delete_me);
 char			*ft_strjoin_and_del_del(char *delete_me, char *delete_me_too);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 21:49:36 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 22:25:14 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 23:39:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	initialize_int_control(t_printf *print_control,
 	int_control->char_count = ft_count_chars_i(int_control->print_me);
 	int_control->digit_count = ft_count_digits_i(int_control->print_me);
 	int_control->has_minimum_width = false;
-	int_control->reached_minimum_width = false;
+	int_control->print_as_padding = false;
 	int_control->minimum_width = 0;
 	int_control->has_precision = false;
 	int_control->precision = 0;

@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/05 21:51:07 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/06 00:02:01 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ ARCHIVE_AND_INDEX = ar -rcs
 HEADER = ft_printf.h
 
 SOURCES = ft_printf.c ft_vprintf.c \
+	\
+	parse_flags.c \
 	\
 	handled_no_conversion.c handled_double_percentage.c handled_s.c \
 	handled_c.c handled_int.c handled_u.c handled_hex.c handled_p.c \

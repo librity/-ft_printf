@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 18:56:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 23:47:41 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,5 @@ unsigned int	ft_atoui(const char *number_pointer)
 		}
 		previous_number = number;
 	}
-	number = number * sign;
-	if (number < 0)
-		return (0);
-	return (number);
+	return ((number * sign) < 0 ? 0 : (number * sign));
 }
