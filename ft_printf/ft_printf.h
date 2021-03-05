@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 03:26:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:00:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@ typedef struct	s_printf
 	va_list		elements;
 	int			chars_printed;
 	int			conversion_position;
+	char		conversion;
 }				t_printf;
+
+typedef struct	s_handle_int
+{
+	int print_me;
+
+}				t_handle_int;
 
 int				ft_printf(const char *format, ...);
 void			ft_vprintf(t_printf *print_control);

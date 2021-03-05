@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 03:40:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:06:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	handled_p(t_printf *print_control)
 {
 	unsigned long print_me;
 
-	if ((print_control->format)[print_control->conversion_position] != 'p')
+	if (print_control->conversion != 'p')
 		return (false);
 	print_me = va_arg(print_control->elements, unsigned long);
 	if (print_me == 0)

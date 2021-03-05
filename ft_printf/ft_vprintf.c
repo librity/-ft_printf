@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 03:50:36 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:04:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static void	find_current_conversion_position(t_printf *print_control)
 			(print_control->format)[conversion_position] != '\0')
 		conversion_position++;
 	print_control->conversion_position = conversion_position;
+	print_control->conversion = (print_control->format)[conversion_position];
 }
 
 void		ft_vprintf(t_printf *print_control)
 {
 	while (*(print_control->format) != '\0')
 	{
-		print_control->conversion_position = 0;
 		if (handled_no_conversion(print_control))
 			continue;
 		if (handled_double_percentage(print_control))

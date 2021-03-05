@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 03:41:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:06:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	handled_s(t_printf *print_control)
 {
 	char *print_me;
 
-	if ((print_control->format)[print_control->conversion_position] != 's')
+	if (print_control->conversion != 's')
 		return (false);
 	print_me = va_arg(print_control->elements, char *);
 	if (print_me == NULL)
