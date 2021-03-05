@@ -24,7 +24,8 @@
 	"type_traits": "c",
 	"utility": "c",
 	"cctype": "c",
-	"cstdio": "c"
+	"cstdio": "c",
+	"cstdarg": "cpp"
 },
   "editor.detectIndentation": false
 }

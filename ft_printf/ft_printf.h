@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 23:47:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:15:58 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,65 +22,79 @@
 # define DOWNCASE_HEX_BASE "0123456789abcdef"
 # define UPPERCASE_HEX_BASE "0123456789ABCDEF"
 
-int	ft_isdigit(int c);
+typedef struct	s_printf
+{
+	const char	*format;
+	va_list		elements;
+	int			chars_printed;
+	int			conversion_pos;
+}				t_printf;
 
-size_t	ft_strlen(const char *s);
-void	ft_strdel(char **delete_me);
+int				ft_printf(const char *format, ...);
+int				ft_vprintf(const char *format, va_list elements);
 
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_putendl(char *s);
+bool			handled_no_conversion(const char **format,
+										int *chars_printed);
+bool			handled_double_percentage(const char **format,
+										int *chars_printed);
 
-bool	ft_is_valid_base(const char *base, const size_t base_length);
-void	ft_putnbr_base(int number, char *base);
-void	ft_putnbr_base_i(int number, char *base);
-void	ft_putnbr_base_ui(unsigned int number, const char *base);
-void	ft_putnbr_base_ul(unsigned long number, const char *base);
+bool			handled_s(const char **format,
+							int *chars_printed,
+							int conversion_posistion,
+							va_list elements);
+bool			handled_c(const char **format,
+							int *chars_printed,
+							int conversion_posistion,
+							va_list elements);
+bool			handled_int(const char **format,
+							int *chars_printed,
+							int conversion_posistion,
+							va_list elements);
+bool			handled_u(const char **format,
+							int *chars_printed,
+							int conversion_posistion,
+							va_list elements);
+bool			handled_p(const char **format,
+							int *chars_printed,
+							int conversion_posistion,
+							va_list elements);
+bool			handled_hex(const char **format,
+							int *chars_printed,
+							int conversion_posistion,
+							va_list elements);
 
-void	ft_putnbr(int n);
-void	ft_putnbr_i(int number);
-void	ft_putnbr_ui(int number);
-void	ft_putnbr_ul(int number);
+void			ft_putchar(char c);
+void			ft_putstr(char *s);
+void			ft_putendl(char *s);
 
-void	ft_puthex_uppercase(unsigned int number);
-void	ft_puthex_downcase(unsigned int number);
+bool			ft_is_valid_base(const char *base, const size_t base_length);
+void			ft_putnbr_base(int number, char *base);
+void			ft_putnbr_base_i(int number, char *base);
+void			ft_putnbr_base_ui(unsigned int number, const char *base);
+void			ft_putnbr_base_ul(unsigned long number, const char *base);
 
-int		ft_count_digits(int number);
-int		ft_count_digits_i(int number);
-int		ft_count_digits_i(int number);
-int		ft_count_digits_ui(unsigned int number);
-int		ft_count_digits_ul(unsigned long number);
-int		ft_count_digits_hex_ul(unsigned long number);
+void			ft_putnbr(int n);
+void			ft_putnbr_i(int number);
+void			ft_putnbr_ui(int number);
+void			ft_putnbr_ul(int number);
 
-bool	handled_no_conversion(const char **format, int *chars_printed);
-bool	handled_double_percentage(const char **format, int *chars_printed);
+void			ft_puthex_uppercase(unsigned int number);
+void			ft_puthex_downcase(unsigned int number);
 
-bool	handled_s(const char **format,
-					int *chars_printed,
-					int conversion_posistion,
-					va_list elements);
-bool	handled_c(const char **format,
-					int *chars_printed,
-					int conversion_posistion,
-					va_list elements);
-bool	handled_int(const char **format,
-					int *chars_printed,
-					int conversion_posistion,
-					va_list elements);
-bool	handled_u(const char **format,
-					int *chars_printed,
-					int conversion_posistion,
-					va_list elements);
-bool	handled_p(const char **format,
-						int *chars_printed,
-						int conversion_posistion,
-						va_list elements);
-bool	handled_hex(const char **format,
-						int *chars_printed,
-						int conversion_posistion,
-						va_list elements);
+int				ft_count_digits(int number);
+int				ft_count_digits_i(int number);
+int				ft_count_digits_i(int number);
+int				ft_count_digits_ui(unsigned int number);
+int				ft_count_digits_ul(unsigned long number);
+int				ft_count_digits_hex_ul(unsigned long number);
 
-int		ft_printf(const char *format, ...);
-int		ft_vprintf(const char *format, va_list elements);
+int				ft_isdigit(int c);
+
+size_t			ft_strlen(const char *s);
+size_t			ft_strlcat(char *dst, const char *src, size_t size);
+char			*ft_strcpy(char *dest, char *src);
+void			ft_strdel(char **delete_me);
+char			*ft_join_and_free(char *free_me, char const *dont_free_me);
+char			*ft_join_and_free_free(char *free_me, char *free_me_too);
 
 #endif
