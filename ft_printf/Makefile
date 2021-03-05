@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/05 02:40:44 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/05 15:56:04 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,17 +27,25 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	handled_no_conversion.c handled_double_percentage.c handled_s.c \
 	handled_c.c handled_int.c handled_u.c handled_hex.c handled_p.c \
 	\
-	ft_count_digits.c ft_count_digits_ui.c ft_count_digits_i.c \
-	ft_count_digits_ul.c ft_count_digits_hex_ul.c \
+	ft_itoa.c ft_atoi.c \
 	\
 	ft_putstr.c ft_is_valid_base.c ft_putnbr_base_i.c ft_putnbr_base.c \
 	ft_putnbr_base_ul.c ft_putnbr_base_ui.c ft_putnbr_i.c ft_putnbr.c \
+	\
 	ft_putchar.c ft_putnbr_ul.c ft_putnbr_ui.c \
+	ft_count_digits.c ft_count_digits_ui.c ft_count_digits_i.c \
+	ft_count_digits_ul.c ft_count_digits_hex_ul.c \
+	\
+	ft_count_chars_i.c \
 	\
 	ft_puthex_uppercase.c ft_puthex_downcase.c \
 	\
-	ft_isdigit.c ft_strlen.c ft_strdel.c ft_strlcat.c ft_strcpy.c \
-	ft_join_and_free.c ft_join_and_free_free.c
+	ft_isdigit.c ft_is_whitespace.c ft_is_plus_or_minus.c \
+	\
+	ft_strlen.c ft_strdel.c ft_strlcat.c ft_strcpy.c \
+	\
+	ft_strjoin.c ft_strjoin_and_free.c ft_strjoin_and_free_free.c \
+	ft_strjoin_and_del.c ft_strjoin_and_del_del.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 EXAMPLE_MAIN = example.c

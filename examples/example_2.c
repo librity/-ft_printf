@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:16:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 18:31:54 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:37:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,21 @@ int main(void)
 
 	printf(" --- Return : %d\n",    printf("%7i, %7d, %7d, %7d, %7d, %7d, %7d, %7d", i, j, k, l, m, c, e, d));
 	printf(" --- Return : %d\n", ft_printf("%7i, %7d, %7d, %7d, %7d, %7d, %7d, %7d", i, j, k, l, m, c, e, d));
+	printf("-------------------------\n");
+
+	printf(" --- Return : %d\n",    printf("%8i, %8d, %8d, %8d, %8d, %8d, %8d, %8d", i, j, k, l, m, c, e, d));
+	printf(" --- Return : %d\n", ft_printf("%8i, %8d, %8d, %8d, %8d, %8d, %8d, %8d", i, j, k, l, m, c, e, d));
+	printf("-------------------------\n");
+
+	printf(" --- Return : %d\n",    printf("%9i, %9d, %9d, %9d, %9d, %9d, %9d, %9d", i, j, k, l, m, c, e, d));
+	printf(" --- Return : %d\n", ft_printf("%9i, %9d, %9d, %9d, %9d, %9d, %9d, %9d", i, j, k, l, m, c, e, d));
+	printf("-------------------------\n");
+
+	printf(" --- Return : %d\n",    printf("%10i, %10d, %10d, %10d, %10d, %10d, %10d, %10d", i, j, k, l, m, c, e, d));
+	printf(" --- Return : %d\n", ft_printf("%10i, %10d, %10d, %10d, %10d, %10d, %10d, %10d", i, j, k, l, m, c, e, d));
+	printf("-------------------------\n");
+
+	printf(" --- Return : %d\n",    printf("%11i, %11d, %11d, %11d, %11d, %11d, %11d, %11d", i, j, k, l, m, c, e, d));
+	printf(" --- Return : %d\n", ft_printf("%11i, %11d, %11d, %11d, %11d, %11d, %11d, %11d", i, j, k, l, m, c, e, d));
 	printf("-------------------------\n");
 }

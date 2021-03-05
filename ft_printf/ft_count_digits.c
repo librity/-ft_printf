@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:10:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:31:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_count_digits(int number)
+unsigned int	ft_count_digits(int number)
 {
 	int digit_count;
 

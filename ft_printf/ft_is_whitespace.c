@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_digits_hex_ul.c                           :+:      :+:    :+:   */
+/*   ft_is_whitespace.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 15:31:36 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/05 15:32:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_count_digits_hex_ul(unsigned long number)
+bool	ft_is_whitespace(char character)
 {
-	int digit_count;
-
-	digit_count = 1;
-	while (number /= 16)
-		digit_count++;
-	return (digit_count);
+	return (character == '\n' || character == '\t' ||
+					character == '\v' || character == '\r' ||
+					character == '\f' || character == ' ');
 }

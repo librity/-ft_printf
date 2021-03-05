@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_join_and_free_free.c                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 01:54:30 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 03:15:40 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/05 15:59:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_join_and_free_free(char *free_me, char *free_me_too)
+/*
+** Creates an allocated string joining s1 with s2.
+*/
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	total_size;
-	size_t	free_me_size;
+	size_t	s1_size;
 	char	*new_string;
 
-	free_me_size = ft_strlen(free_me) + 1;
-	total_size = free_me_size + ft_strlen(free_me_too);
+	s1_size = ft_strlen(s1) + 1;
+	total_size = s1_size + ft_strlen(s2);
 	new_string = malloc(total_size * sizeof(char));
 	if (new_string == NULL)
-	{
-		free(free_me);
-		free(free_me_too);
 		return (NULL);
-	}
-	ft_strcpy(new_string, free_me);
-	ft_strlcat(new_string, free_me_too, total_size);
-	free(free_me);
-	free(free_me_too);
+	ft_strcpy(new_string, (char *)s1);
+	ft_strlcat(new_string, s2, total_size);
 	return (new_string);
 }
