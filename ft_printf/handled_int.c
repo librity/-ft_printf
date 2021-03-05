@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 19:58:39 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 21:40:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	handle_padding(t_printf *print_control, t_handle_int *int_control)
+static void	pad_rigth(t_printf *print_control, t_handle_int *int_control)
 {
 	unsigned int total_padding;
 
@@ -22,18 +22,31 @@ static void	handle_padding(t_printf *print_control, t_handle_int *int_control)
 			total_padding++;
 	(print_control->chars_printed) += total_padding;
 	while(total_padding--)
-		ft_putchar(' ');
+		ft_putchar(int_control->padding);
+}
+
+static void	pad_left(t_printf *print_control, t_handle_int *int_control)
+{
+	unsigned int total_padding;
+
+	total_padding = int_control->left_padding;
+	(print_control->chars_printed) += total_padding;
+	while(total_padding--)
+		ft_putchar(int_control->padding);
 }
 
 static void	print_conversion(t_printf *print_control, t_handle_int *int_control)
 {
 	if (int_control->has_minimum_width)
 		if (int_control->minimum_width >= int_control->char_count)
-			handle_padding(print_control, int_control);
-	if (int_control->has_precision && !(int_control->has_left_adjustment))
+			pad_rigth(print_control, int_control);
+	if (int_control->has_precision)
 		if (int_control->precision == 0 && int_control->print_me == 0)
 			return;
 	ft_putnbr_i(int_control->print_me);
+	// if (int_control->has_left_padding)
+	if (false)
+		pad_left(print_control, int_control);
 	(print_control->chars_printed) += int_control->char_count;
 }
 
@@ -53,8 +66,8 @@ static void	parse_flags(t_printf *print_control, t_handle_int *int_control)
 	if (*int_control->flags == '-')
 	{
 		int_control->flags++;
-		int_control->has_left_adjustment = true;
-		int_control->left_adjustment = ft_atoui(int_control->flags);
+		int_control->has_left_padding = true;
+		int_control->left_padding = ft_atoui(int_control->flags);
 		int_control->flags = ft_skip_digits(int_control->flags);
 	}
 	if (*int_control->flags == '.')
@@ -78,8 +91,9 @@ static void	initialize_control(t_printf *print_control,
 	int_control->minimum_width = 0;
 	int_control->has_precision = false;
 	int_control->precision = 0;
-	int_control->has_left_adjustment = false;
-	int_control->left_adjustment = 0;
+	int_control->padding = ' ';
+	int_control->has_left_padding = false;
+	int_control->left_padding = 0;
 }
 
 bool		handled_int(t_printf *print_control)

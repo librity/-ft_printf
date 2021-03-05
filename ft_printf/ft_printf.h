@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 18:57:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 21:34:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ typedef struct	s_handle_int
 	unsigned int	minimum_width;
 	bool			has_precision;
 	unsigned int	precision;
-	bool			has_left_adjustment;
-	unsigned int	left_adjustment;
+	char			padding;
+	bool			has_left_padding;
+	unsigned int	left_padding;
 }				t_handle_int;
 
 int				ft_printf(const char *format, ...);
