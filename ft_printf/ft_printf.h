@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 21:34:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 22:25:05 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ typedef struct	s_handle_int
 	unsigned int	digit_count;
 	unsigned int	char_count;
 	bool			has_minimum_width;
+	bool			reached_minimum_width;
 	unsigned int	minimum_width;
 	bool			has_precision;
 	unsigned int	precision;
 	char			padding;
-	bool			has_left_padding;
-	unsigned int	left_padding;
+	bool			has_right_padding;
+	unsigned int	right_padding;
 }				t_handle_int;
 
 int				ft_printf(const char *format, ...);
@@ -59,6 +60,10 @@ bool			handled_u(t_printf *print_control);
 bool			handled_p(t_printf *print_control);
 bool			handled_hex(t_printf *print_control);
 
+void			initialize_print_control(t_printf *print_control,
+											const char *format);
+void			initialize_int_control(t_printf *print_control,
+											t_handle_int *int_control);
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
 void			ft_putendl(char *s);

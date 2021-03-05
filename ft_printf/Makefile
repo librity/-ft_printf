@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/05 18:57:37 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/05 21:51:07 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	handled_no_conversion.c handled_double_percentage.c handled_s.c \
 	handled_c.c handled_int.c handled_u.c handled_hex.c handled_p.c \
+	\
+	initializers.c \
 	\
 	ft_itoa.c ft_atoi.c ft_atoui.c \
 	\
