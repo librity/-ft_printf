@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   example.c                                          :+:      :+:    :+:   */
+/*   example_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:16:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 15:40:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 00:14:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int main(void)
 	printf_return = ft_printf("%s\n", "This is a string");
 	printf("printf_return: %d\n", printf_return);
 	printf("-----------------------\n");
+
+	// printf_return = printf("%s\n", NULL);
+	// printf("printf_return: %d\n", printf_return);
+	// printf_return = ft_printf("%s\n", NULL);
+	// printf("printf_return: %d\n", printf_return);
+	// printf("-----------------------\n");
 
 	printf_return = printf("%s %%\n", "I like turtles");
 	printf("printf_return: %d\n", printf_return);
