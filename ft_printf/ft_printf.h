@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 03:15:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:26:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,41 +27,21 @@ typedef struct	s_printf
 	const char	*format;
 	va_list		elements;
 	int			chars_printed;
-	int			conversion_pos;
+	int			conversion_position;
 }				t_printf;
 
 int				ft_printf(const char *format, ...);
-int				ft_vprintf(const char *format, va_list elements);
+void			ft_vprintf(t_printf *print_control);
 
-bool			handled_no_conversion(const char **format,
-										int *chars_printed);
-bool			handled_double_percentage(const char **format,
-										int *chars_printed);
+bool			handled_no_conversion(t_printf *print_control);
+bool			handled_double_percentage(t_printf *print_control);
 
-bool			handled_s(const char **format,
-							int *chars_printed,
-							int conversion_posistion,
-							va_list elements);
-bool			handled_c(const char **format,
-							int *chars_printed,
-							int conversion_posistion,
-							va_list elements);
-bool			handled_int(const char **format,
-							int *chars_printed,
-							int conversion_posistion,
-							va_list elements);
-bool			handled_u(const char **format,
-							int *chars_printed,
-							int conversion_posistion,
-							va_list elements);
-bool			handled_p(const char **format,
-							int *chars_printed,
-							int conversion_posistion,
-							va_list elements);
-bool			handled_hex(const char **format,
-							int *chars_printed,
-							int conversion_posistion,
-							va_list elements);
+bool			handled_s(t_printf *print_control);
+bool			handled_c(t_printf *print_control);
+bool			handled_int(t_printf *print_control);
+bool			handled_u(t_printf *print_control);
+bool			handled_p(t_printf *print_control);
+bool			handled_hex(t_printf *print_control);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *s);

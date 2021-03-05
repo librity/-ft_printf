@@ -6,24 +6,21 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:00:32 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 22:51:10 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:36:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	handled_c(const char **format,
-					int *chars_printed,
-					int conversion_posistion,
-					va_list elements)
+bool	handled_c(t_printf *print_control)
 {
 	char print_me;
 
-	if ((*format)[conversion_posistion] != 'c')
+	if ((print_control->format)[print_control->conversion_position] != 'c')
 		return (false);
-	print_me = (unsigned char)va_arg(elements, int);
+	print_me = (unsigned char)va_arg(print_control->elements, int);
 	ft_putchar(print_me);
-	(*chars_printed)++;
-	(*format) += conversion_posistion + 1;
+	(print_control->chars_printed)++;
+	(print_control->format) += (print_control->conversion_position) + 1;
 	return (true);
 }

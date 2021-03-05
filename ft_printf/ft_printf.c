@@ -6,19 +6,26 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:16:34 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/03 03:19:27 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:25:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void	initialize_control(t_printf *print_control, const char *format)
+{
+	print_control->format = format;
+	print_control->chars_printed = 0;
+	print_control->conversion_position = 0;
+}
+
 int	ft_printf(const char *format, ...)
 {
-	va_list	elements;
-	int		chars_printed;
+	t_printf	print_control;
 
-	va_start(elements, format);
-	chars_printed = ft_vprintf(format, elements);
-	va_end(elements);
-	return (chars_printed);
+	initialize_control(&print_control, format);
+	va_start(print_control.elements, format);
+	ft_vprintf(&print_control);
+	va_end(print_control.elements);
+	return (print_control.chars_printed);
 }

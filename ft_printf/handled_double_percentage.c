@@ -6,18 +6,19 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:37 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 00:06:53 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:33:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	handled_double_percentage(const char **format, int *chars_printed)
+bool	handled_double_percentage(t_printf *print_control)
 {
-	if (!(**format == '%' && *(*(format) + 1) == '%'))
+	if (!((print_control->format)[print_control->conversion_position] == '%' &&
+		(print_control->format)[print_control->conversion_position + 1] == '%'))
 		return (false);
-	ft_putchar(**format);
-	(*format) += 2;
-	(*chars_printed)++;
+	ft_putchar(*(print_control->format));
+	(print_control->format) += 2;
+	(print_control->chars_printed)++;
 	return (true);
 }

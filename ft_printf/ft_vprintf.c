@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 22:51:39 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:50:36 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,39 @@ static bool	is_a_flag(char current_char)
 	return (false);
 }
 
-static int	find_current_conversion_position(const char *format)
+static void	find_current_conversion_position(t_printf *print_control)
 {
-	int conversion_posistion;
+	int conversion_position;
 
-	conversion_posistion = 0;
-	while (is_a_flag(format[conversion_posistion]) &&
-			format[conversion_posistion] != '\0')
-		conversion_posistion++;
-	return (conversion_posistion);
+	(print_control->format)++;
+	conversion_position = 0;
+	while (is_a_flag((print_control->format)[conversion_position]) &&
+			(print_control->format)[conversion_position] != '\0')
+		conversion_position++;
+	print_control->conversion_position = conversion_position;
 }
 
-int			ft_vprintf(const char *format, va_list elements)
+void		ft_vprintf(t_printf *print_control)
 {
-	int	chars_printed;
-	int	conversion_pos;
-
-	chars_printed = 0;
-	while (*format != '\0')
+	while (*(print_control->format) != '\0')
 	{
-		if (handled_no_conversion(&format, &chars_printed))
+		print_control->conversion_position = 0;
+		if (handled_no_conversion(print_control))
 			continue;
-		if (handled_double_percentage(&format, &chars_printed))
+		if (handled_double_percentage(print_control))
 			continue;
-		conversion_pos = find_current_conversion_position(++format);
-		if (handled_s(&format, &chars_printed, conversion_pos, elements))
+		find_current_conversion_position(print_control);
+		if (handled_s(print_control))
 			continue;
-		if (handled_c(&format, &chars_printed, conversion_pos, elements))
+		if (handled_c(print_control))
 			continue;
-		if (handled_int(&format, &chars_printed, conversion_pos, elements))
+		if (handled_int(print_control))
 			continue;
-		if (handled_u(&format, &chars_printed, conversion_pos, elements))
+		if (handled_u(print_control))
 			continue;
-		if (handled_p(&format, &chars_printed, conversion_pos, elements))
+		if (handled_p(print_control))
 			continue;
-		if (handled_hex(&format, &chars_printed, conversion_pos, elements))
+		if (handled_hex(print_control))
 			continue;
 	}
-	return (chars_printed);
 }

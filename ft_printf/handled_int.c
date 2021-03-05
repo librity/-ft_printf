@@ -6,27 +6,24 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 23:27:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:39:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	handled_int(const char **format,
-					int *chars_printed,
-					int conversion_posistion,
-					va_list elements)
+bool	handled_int(t_printf *print_control)
 {
 	int print_me;
 
-	if ((*format)[conversion_posistion] != 'd' &&
-		(*format)[conversion_posistion] != 'i')
+	if ((print_control->format)[print_control->conversion_position] != 'd' &&
+		(print_control->format)[print_control->conversion_position] != 'i')
 		return (false);
-	print_me = va_arg(elements, int);
+	print_me = va_arg(print_control->elements, int);
 	ft_putnbr_i(print_me);
 	if (print_me < 0)
-		(*chars_printed)++;
-	*chars_printed += ft_count_digits_i(print_me);
-	(*format) += conversion_posistion + 1;
+		(print_control->chars_printed)++;
+	(print_control->chars_printed) += ft_count_digits_i(print_me);
+	(print_control->format) += (print_control->conversion_position) + 1;
 	return (true);
 }
