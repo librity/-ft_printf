@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 18:16:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 18:57:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ typedef struct	s_printf
 typedef struct	s_handle_int
 {
 	int				print_me;
+	char			*flags;
 	unsigned int	digit_count;
 	unsigned int	char_count;
 	bool			has_minimum_width;
 	unsigned int	minimum_width;
 	bool			has_precision;
 	unsigned int	precision;
+	bool			has_left_adjustment;
+	unsigned int	left_adjustment;
 }				t_handle_int;
 
 int				ft_printf(const char *format, ...);
@@ -73,8 +76,9 @@ void			ft_putnbr_ul(int number);
 void			ft_puthex_uppercase(unsigned int number);
 void			ft_puthex_downcase(unsigned int number);
 
-int				ft_atoi(const char *number_pointer);
 char			*ft_itoa(int n);
+int				ft_atoi(const char *number_pointer);
+unsigned int	ft_atoui(const char *number_pointer);
 
 unsigned int	ft_count_digits(int number);
 unsigned int	ft_count_digits_i(int number);
