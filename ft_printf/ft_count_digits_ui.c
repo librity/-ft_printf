@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_udigits.c                                 :+:      :+:    :+:   */
+/*   ft_count_digits_ui.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:10:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 23:18:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_count_udigits(unsigned int number)
+int	ft_count_digits_ui(unsigned int number)
 {
 	int digit_count;
 

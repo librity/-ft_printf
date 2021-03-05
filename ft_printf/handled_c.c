@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handled_char.c                                     :+:      :+:    :+:   */
+/*   handled_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:00:32 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 19:48:06 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 22:51:10 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	handled_char(const char **format,
+bool	handled_c(const char **format,
 					int *chars_printed,
 					int conversion_posistion,
 					va_list elements)

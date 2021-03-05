@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_putnbr_ui.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 07:10:48 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 23:04:33 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/03/03 03:17:29 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/04 23:47:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthex_uppercase(unsigned int number)
+/*
+** Writes ascii representation of number to file descriptor fd.
+*/
+
+void	ft_putnbr_ui(int number)
 {
-	ft_putnbr_base_ui(number, UPPERCASE_HEX_BASE);
+	ft_putnbr_base_ui(number, DECIMAL_BASE);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_count_digits_i.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 07:10:48 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 23:04:33 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/04 23:03:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthex_uppercase(unsigned int number)
+int	ft_count_digits_i(int number)
 {
-	ft_putnbr_base_ui(number, UPPERCASE_HEX_BASE);
+	return (ft_count_digits(number));
 }

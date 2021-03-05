@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 20:22:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/04 22:51:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ int			ft_vprintf(const char *format, va_list elements)
 		if (handled_double_percentage(&format, &chars_printed))
 			continue;
 		conversion_pos = find_current_conversion_position(++format);
-		if (handled_string(&format, &chars_printed, conversion_pos, elements))
+		if (handled_s(&format, &chars_printed, conversion_pos, elements))
 			continue;
-		if (handled_char(&format, &chars_printed, conversion_pos, elements))
+		if (handled_c(&format, &chars_printed, conversion_pos, elements))
 			continue;
 		if (handled_int(&format, &chars_printed, conversion_pos, elements))
 			continue;
-		if (handled_uint(&format, &chars_printed, conversion_pos, elements))
+		if (handled_u(&format, &chars_printed, conversion_pos, elements))
 			continue;
-		if (handled_pointer(&format, &chars_printed, conversion_pos, elements))
+		if (handled_p(&format, &chars_printed, conversion_pos, elements))
 			continue;
 		if (handled_hex(&format, &chars_printed, conversion_pos, elements))
 			continue;

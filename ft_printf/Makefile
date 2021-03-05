@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/04 20:22:45 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/04 23:48:03 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,21 @@ ARCHIVE_AND_INDEX = ar -rcs
 
 HEADER = ft_printf.h
 
-SOURCES = ft_printf.c ft_vprintf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
-	ft_strlen.c ft_count_digits.c handled_char.c handled_double_percentage.c \
-	handled_int.c handled_string.c handled_no_conversion.c handled_uint.c \
-	handled_pointer.c ft_putnbr_base.c ft_puthex_downcase.c ft_count_udigits.c \
-	ft_puthex_uppercase.c handled_hex.c ft_putnbr_hex.c ft_count_uldigits.c \
-	ft_count_uldigits_hex.c ft_isdigit.c
+SOURCES = ft_printf.c ft_vprintf.c \
+	\
+	handled_no_conversion.c handled_double_percentage.c handled_s.c \
+	handled_c.c handled_int.c handled_u.c handled_hex.c handled_p.c \
+	\
+	ft_isdigit.c ft_is_valid_base.c ft_strlen.c ft_strdel.c \
+	\
+	ft_count_digits.c ft_count_digits_ui.c ft_count_digits_i.c \
+	ft_count_digits_ul.c ft_count_digits_hex_ul.c \
+	\
+	ft_putstr.c ft_putnbr_base_i.c ft_putnbr_base.c ft_putnbr_base_ul.c \
+	ft_putnbr_base_ui.c ft_putnbr_i.c ft_putnbr.c ft_putchar.c ft_putnbr_ul.c \
+	ft_putnbr_ui.c \
+	\
+	ft_puthex_uppercase.c ft_puthex_downcase.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 EXAMPLE_MAIN = example.c

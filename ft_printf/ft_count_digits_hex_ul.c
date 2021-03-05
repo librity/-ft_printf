@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_count_digits_hex_ul.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 07:10:48 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/04 23:04:33 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/03/03 03:16:22 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/04 23:18:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthex_uppercase(unsigned int number)
+int	ft_count_digits_hex_ul(unsigned long number)
 {
-	ft_putnbr_base_ui(number, UPPERCASE_HEX_BASE);
+	int digit_count;
+
+	digit_count = 1;
+	while (number /= 16)
+		digit_count++;
+	return (digit_count);
 }
