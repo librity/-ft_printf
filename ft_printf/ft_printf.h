@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 15:59:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/05 18:16:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ typedef struct	s_printf
 
 typedef struct	s_handle_int
 {
-	int print_me;
-	int char_count;
-	int minimum_width;
+	int				print_me;
+	unsigned int	digit_count;
+	unsigned int	char_count;
+	bool			has_minimum_width;
+	unsigned int	minimum_width;
+	bool			has_precision;
+	unsigned int	precision;
 }				t_handle_int;
 
 int				ft_printf(const char *format, ...);
@@ -80,6 +84,9 @@ unsigned int	ft_count_digits_ul(unsigned long number);
 unsigned int	ft_count_digits_hex_ul(unsigned long number);
 
 unsigned int	ft_count_chars_i(int number);
+
+char			*ft_skip_digits(char *digits);
+char			*ft_skip_number(char *digits);
 
 bool			ft_isdigit(int c);
 bool			ft_is_whitespace(char character);

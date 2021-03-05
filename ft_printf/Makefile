@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/05 15:56:04 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/05 18:16:35 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libftprintf.a
 
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror
+DEBUG_CC_FLAGS = -g
+# DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror
 
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
@@ -39,6 +40,8 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	ft_count_chars_i.c \
 	\
 	ft_puthex_uppercase.c ft_puthex_downcase.c \
+	\
+	ft_skip_digits.c ft_skip_number.c \
 	\
 	ft_isdigit.c ft_is_whitespace.c ft_is_plus_or_minus.c \
 	\

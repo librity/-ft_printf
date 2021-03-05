@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug_kit.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit copy 2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 19:29:00 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 17:55:49 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/05 18:07:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-printf("*pry*");
-printf("pry:|%d|", value);
-printf("pry:|%c|", value);
-printf("pry:|%s|", value);
-printf("pry:|%s|", "value");
-printf("*found_something*");
+#include "ft_printf.h"
+
+char	*ft_skip_digits(char *digits)
+{
+	while(ft_isdigit(*digits))
+		digits++;
+	return (digits);
+}
