@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/06 00:02:01 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/06 00:44:36 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEADER = ft_printf.h
 
 SOURCES = ft_printf.c ft_vprintf.c \
 	\
-	parse_flags.c \
+	parse_flags.c parse_wildcars.c \
 	\
 	handled_no_conversion.c handled_double_percentage.c handled_s.c \
 	handled_c.c handled_int.c handled_u.c handled_hex.c handled_p.c \
@@ -49,7 +49,8 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	ft_isdigit.c ft_is_whitespace.c ft_is_plus_or_minus.c \
 	\
-	ft_strlen.c ft_strdel.c ft_strlcat.c ft_strcpy.c \
+	ft_strlen.c ft_strdel.c ft_strlcat.c ft_strcpy.c ft_substr.c ft_strdup.c \
+	ft_strchr.c ft_memcpy.c \
 	\
 	ft_strjoin.c ft_strjoin_and_free.c ft_strjoin_and_free_free.c \
 	ft_strjoin_and_del.c ft_strjoin_and_del_del.c
