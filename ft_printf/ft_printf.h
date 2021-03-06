@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 23:56:30 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/06 00:44:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ bool			handled_p(t_printf *print_control);
 bool			handled_hex(t_printf *print_control);
 
 void			parse_flags(t_printf *print_control, t_handle_int *int_control);
+void			parse_wildcars(t_printf *print_control,
+								t_handle_int *int_control);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
@@ -109,6 +111,10 @@ size_t			ft_strlen(const char *s);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strcpy(char *dest, char *src);
 void			ft_strdel(char **delete_me);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strdup(const char *s);
+char			*ft_strchr(const char *s, int c);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
 
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin_and_free(char *free_me, char const *dont_free_me);
