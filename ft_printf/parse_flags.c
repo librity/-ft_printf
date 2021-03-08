@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 00:59:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 02:44:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,22 @@ static void	parse_minimum_width(t_handle_int *int_control)
 	int_control->flags = ft_skip_digits(int_control->flags);
 }
 
+static void	fetch_print_me(t_printf *print_control, t_handle_int *int_control)
+{
+	int_control->print_me = va_arg(print_control->elements, int);
+	int_control->char_count = ft_count_chars_i(int_control->print_me);
+	int_control->digit_count = ft_count_digits_i(int_control->print_me);
+}
+
 void		parse_flags(t_printf *print_control, t_handle_int *int_control)
 {
 	if (print_control->conversion_position == 0)
 	{
 		(print_control->format)++;
-		return ;
+		return (fetch_print_me(print_control, int_control));
 	}
 	parse_wildcars(print_control, int_control);
-	int_control->print_me = va_arg(print_control->elements, int);
-	int_control->char_count = ft_count_chars_i(int_control->print_me);
-	int_control->digit_count = ft_count_digits_i(int_control->print_me);
+	fetch_print_me(print_control, int_control);
 	if (ft_isdigit(*(int_control->flags)))
 		parse_minimum_width(int_control);
 	if (*int_control->flags == '-')

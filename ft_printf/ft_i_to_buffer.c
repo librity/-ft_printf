@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 00:17:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 02:03:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		write_digits(char *string,
 								unsigned int number,
 								int is_negative)
 {
-	// string[char_count] = '\0';
+	string[char_count] = '\0';
 	while (char_count--)
 	{
 		string[char_count] = '0' + (number % 10);

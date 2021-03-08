@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 00:54:16 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 02:30:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 # include <stdarg.h>
 # include <stdbool.h>
 # include <limits.h>
-# include <stdio.h>
 
-# ifdef __linux__
-# include <linux/limits.h>
-# define ARG_MAX       131072
-# endif
+// REMOVE THESE BEFORE SUBMITTING
+# include <stdio.h>
+# define ARG_MAX 131072
+// REMOVE THESE BEFORE SUBMITTING
 
 # define DECIMAL_BASE "0123456789"
 # define DOWNCASE_HEX_BASE "0123456789abcdef"
@@ -36,7 +35,7 @@ typedef struct	s_printf
 	int				chars_printed;
 	unsigned int	conversion_position;
 	char			conversion;
-}					t_printf;
+}				t_printf;
 
 typedef struct	s_handle_int
 {

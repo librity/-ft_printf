@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 00:56:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 02:46:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static void	handle_wildcard(t_printf *print_control,
 							t_handle_int *int_control,
 							t_parse_wildcards *control)
 {
-		control->wildcard = va_arg(print_control->elements, int);
-		control->parser += ft_i_to_buffer(control->wildcard,
+	control->wildcard = va_arg(print_control->elements, int);
+	control->parser += ft_i_to_buffer(control->wildcard,
 								int_control->parsed_flags + control->parser);
-		(int_control->flags)++;
-		control->conversion_position--;
+	(int_control->flags)++;
+	control->conversion_position--;
 }
 
 static bool	handled_default(t_handle_int *int_control,
@@ -41,7 +41,7 @@ void		parse_wildcars(t_printf *print_control, t_handle_int *int_control)
 
 	initialize_wildcard_control(print_control, int_control, &control);
 	if ((control.found_wildcards) == NULL)
-		return;
+		return ;
 	int_control->has_wildcards = true;
 	while ((control.conversion_position) > 0 && *(int_control->flags) != '\0')
 	{
