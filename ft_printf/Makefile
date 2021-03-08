@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/08 00:12:52 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/08 03:46:34 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	parse_flags.c parse_wildcars.c \
 	\
-	handled_no_conversion.c handled_double_percentage.c handled_s.c \
+	handled_no_conversion.c handled_double_percent.c handled_s.c \
 	handled_c.c handled_int.c handled_u.c handled_hex.c handled_p.c \
 	\
 	initializers.c \

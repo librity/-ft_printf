@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:18:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 04:04:38 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 03:47:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		ft_vprintf(t_printf *print_control)
 	{
 		if (handled_no_conversion(print_control))
 			continue;
-		if (handled_double_percentage(print_control))
+		if (handled_double_percent(print_control))
 			continue;
 		find_current_conversion_position(print_control);
 		if (handled_s(print_control))
