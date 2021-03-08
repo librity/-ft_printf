@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 02:30:18 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 03:08:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@
 
 // REMOVE THESE BEFORE SUBMITTING
 # include <stdio.h>
+#ifdef __linux__
 # define ARG_MAX 131072
+#endif
 // REMOVE THESE BEFORE SUBMITTING
 
 # define DECIMAL_BASE "0123456789"
