@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/06 00:44:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/08 00:54:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <limits.h>
+# include <stdio.h>
+
+# ifdef __linux__
+# include <linux/limits.h>
+# define ARG_MAX       131072
+# endif
 
 # define DECIMAL_BASE "0123456789"
 # define DOWNCASE_HEX_BASE "0123456789abcdef"
@@ -24,19 +31,21 @@
 
 typedef struct	s_printf
 {
-	const char	*format;
-	va_list		elements;
-	int			chars_printed;
-	int			conversion_position;
-	char		conversion;
-}				t_printf;
+	const char		*format;
+	va_list			elements;
+	int				chars_printed;
+	unsigned int	conversion_position;
+	char			conversion;
+}					t_printf;
 
 typedef struct	s_handle_int
 {
 	int				print_me;
+	char			parsed_flags[ARG_MAX];
 	char			*flags;
 	unsigned int	digit_count;
 	unsigned int	char_count;
+	bool			has_wildcards;
 	bool			print_as_padding;
 	bool			has_minimum_width;
 	unsigned int	minimum_width;
@@ -47,6 +56,14 @@ typedef struct	s_handle_int
 	unsigned int	right_padding;
 }				t_handle_int;
 
+typedef struct	s_parse_wildcards
+{
+	char			*found_wildcards;
+	unsigned int	conversion_position;
+	int				wildcard;
+	size_t			parser;
+}				t_parse_wildcards;
+
 int				ft_printf(const char *format, ...);
 void			ft_vprintf(t_printf *print_control);
 
@@ -54,6 +71,9 @@ void			initialize_print_control(t_printf *print_control,
 											const char *format);
 void			initialize_int_control(t_printf *print_control,
 											t_handle_int *int_control);
+void			initialize_wildcard_control(t_printf *print_control,
+										t_handle_int *int_control,
+										t_parse_wildcards *wildcard_control);
 
 bool			handled_no_conversion(t_printf *print_control);
 bool			handled_double_percentage(t_printf *print_control);
@@ -88,6 +108,7 @@ void			ft_puthex_uppercase(unsigned int number);
 void			ft_puthex_downcase(unsigned int number);
 
 char			*ft_itoa(int n);
+unsigned int	ft_i_to_buffer(int n, char *buffer);
 int				ft_atoi(const char *number_pointer);
 unsigned int	ft_atoui(const char *number_pointer);
 
@@ -114,6 +135,7 @@ void			ft_strdel(char **delete_me);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strdup(const char *s);
 char			*ft_strchr(const char *s, int c);
+char			*ft_strnchr(const char *s, int c, unsigned int limit);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 
 char			*ft_strjoin(char const *s1, char const *s2);

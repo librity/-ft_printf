@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/06 00:44:36 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/08 00:12:52 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	initializers.c \
 	\
-	ft_itoa.c ft_atoi.c ft_atoui.c \
+	ft_itoa.c ft_i_to_buffer.c ft_atoi.c ft_atoui.c \
 	\
 	ft_putstr.c ft_is_valid_base.c ft_putnbr_base_i.c ft_putnbr_base.c \
 	ft_putnbr_base_ul.c ft_putnbr_base_ui.c ft_putnbr_i.c ft_putnbr.c \
@@ -50,7 +50,7 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	ft_isdigit.c ft_is_whitespace.c ft_is_plus_or_minus.c \
 	\
 	ft_strlen.c ft_strdel.c ft_strlcat.c ft_strcpy.c ft_substr.c ft_strdup.c \
-	ft_strchr.c ft_memcpy.c \
+	ft_strchr.c ft_strnchr.c ft_memcpy.c \
 	\
 	ft_strjoin.c ft_strjoin_and_free.c ft_strjoin_and_free_free.c \
 	ft_strjoin_and_del.c ft_strjoin_and_del_del.c

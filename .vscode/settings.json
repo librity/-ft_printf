@@ -25,7 +25,9 @@
 	"utility": "c",
 	"cctype": "c",
 	"cstdio": "c",
-	"cstdarg": "cpp"
+	"cstdarg": "cpp",
+	"limits.h": "c",
+	"stdarg.h": "c"
 },
   "editor.detectIndentation": false
 }
