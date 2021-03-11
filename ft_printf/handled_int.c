@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 02:39:40 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/11 19:56:33 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	handle_right_padding(t_printf *print_control,
 	if (int_control->has_right_padding == false)
 		return ;
 	right_padding = int_control->right_padding - int_control->char_count;
+	if (int_control->print_as_padding)
+		right_padding++;
 	if (right_padding <= 0)
 		return ;
 	(print_control->chars_printed) += right_padding;

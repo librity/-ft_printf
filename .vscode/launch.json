@@ -11,7 +11,7 @@
       "program": "${workspaceFolder}/ft_printf/a.out",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}/ft_printf",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
