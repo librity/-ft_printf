@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 03:43:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 18:15:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct	s_handle_int
 	bool			is_negative;
 	char			parsed_flags[ARG_MAX];
 	char			*flags;
-	unsigned int	digit_count;
-	unsigned int	char_count;
+	int				digit_count;
+	int				char_count;
 	bool			has_wildcards;
 	bool			is_left_justified;
 	bool			is_left_padded_with_zeros;
