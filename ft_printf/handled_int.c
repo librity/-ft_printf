@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 09:06:18 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 01:07:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	handle_field_width(t_printf *print_control,
 
 	if (int_control->is_left_justified)
 		return ;
+	if (int_control->precision < (int)int_control->digit_count)
+		return ;
 	precision_padding = int_control->minimum_width - int_control->digit_count;
 	if (precision_padding < 0)
 		precision_padding = 0;
@@ -56,6 +58,25 @@ static void	handle_printing(t_printf *print_control, t_handle_int *int_control)
 	(print_control->chars_printed) += int_control->char_count;
 }
 
+static void	handle_left_padding(t_printf *print_control,
+									t_handle_int *int_control)
+{
+	int left_padding;
+
+	if (int_control->is_left_justified)
+		return ;
+	if (int_control->minimum_width <= int_control->precision)
+		return ;
+	if (int_control->minimum_width <= (int)int_control->char_count)
+		return ;
+	left_padding = int_control->minimum_width - int_control->char_count;
+	if (left_padding <= 0)
+		return ;
+	(print_control->chars_printed) += left_padding;
+	while (left_padding--)
+		ft_putchar(' ');
+}
+
 bool		handled_int(t_printf *print_control)
 {
 	t_handle_int int_control;
@@ -64,6 +85,7 @@ bool		handled_int(t_printf *print_control)
 		return (false);
 	initialize_int_control(print_control, &int_control);
 	parse_flags(print_control, &int_control);
+	handle_left_padding(print_control, &int_control);
 	handle_printing(print_control, &int_control);
 	handle_right_padding(print_control, &int_control);
 	return (true);
