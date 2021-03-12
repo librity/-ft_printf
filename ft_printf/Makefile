@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/08 03:46:34 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/11 22:31:47 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,12 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	ft_itoa.c ft_i_to_buffer.c ft_atoi.c ft_atoui.c \
 	\
-	ft_putstr.c ft_is_valid_base.c ft_putnbr_base_i.c ft_putnbr_base.c \
-	ft_putnbr_base_ul.c ft_putnbr_base_ui.c ft_putnbr_i.c ft_putnbr.c \
+	ft_putstr.c \
+	\
+	ft_is_valid_base.c ft_putnbr_base.c ft_putnbr_base_i.c \
+	ft_putnbr_base_ul.c ft_putnbr_base_li.c ft_putnbr_base_ui.c \
+	\
+	ft_putnbr.c ft_putnbr_i.c ft_putnbr_ui.c ft_putnbr_li.c ft_putnbr_ul.c \
 	\
 	ft_putchar.c ft_putnbr_ul.c ft_putnbr_ui.c \
 	ft_count_digits.c ft_count_digits_ui.c ft_count_digits_i.c \

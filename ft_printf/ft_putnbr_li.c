@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_ul.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_li.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:29 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/11 22:27:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/11 22:28:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Writes ascii representation of number to file descriptor fd.
 */
 
-void	ft_putnbr_ul(unsigned long number)
+void	ft_putnbr_li(long int number)
 {
-	ft_putnbr_base_ul(number, DECIMAL_BASE);
+	ft_putnbr_base_li(number, DECIMAL_BASE);
 }

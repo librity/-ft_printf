@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/11 21:43:06 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/11 22:41:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,35 @@ static void	handle_minimum_width(t_printf *print_control,
 		ft_putchar(int_control->padding);
 }
 
+static void	handle_precision(t_printf *print_control,
+								t_handle_int *int_control)
+{
+	int precision_padding;
+
+	if (int_control->digit_count > (unsigned int)int_control->precision)
+		return ;
+	precision_padding = int_control->precision - int_control->digit_count;
+	if (precision_padding < 0)
+		precision_padding = 0;
+	(print_control->chars_printed) += precision_padding;
+	while (precision_padding--)
+		ft_putchar('0');
+}
+
 static void	handle_printing(t_printf *print_control, t_handle_int *int_control)
 {
+	long int print_me;
+
+	print_me = int_control->print_me;
 	if (int_control->print_as_padding)
 		return ;
-	ft_putnbr_i(int_control->print_me);
+	if (print_me < 0)
+	{
+		ft_putchar('-');
+		print_me *= -1;
+	}
+	handle_precision(print_control, int_control);
+	ft_putnbr_li(print_me);
 	(print_control->chars_printed) += int_control->char_count;
 }
 
@@ -54,13 +78,6 @@ static void	handle_right_padding(t_printf *print_control,
 		ft_putchar(int_control->padding);
 }
 
-static void	print_conversion(t_printf *print_control, t_handle_int *int_control)
-{
-	handle_minimum_width(print_control, int_control);
-	handle_printing(print_control, int_control);
-	handle_right_padding(print_control, int_control);
-}
-
 bool		handled_int(t_printf *print_control)
 {
 	t_handle_int int_control;
@@ -69,6 +86,8 @@ bool		handled_int(t_printf *print_control)
 		return (false);
 	initialize_int_control(print_control, &int_control);
 	parse_flags(print_control, &int_control);
-	print_conversion(print_control, &int_control);
+	handle_minimum_width(print_control, &int_control);
+	handle_printing(print_control, &int_control);
+	handle_right_padding(print_control, &int_control);
 	return (true);
 }
