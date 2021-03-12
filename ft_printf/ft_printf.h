@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 02:33:18 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 03:43:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void			parse_wildcars(t_printf *print_control,
 
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
+void			ft_putstr_up_to(char *s, size_t up_to);
 void			ft_putendl(char *s);
 
 bool			ft_is_valid_base(const char *base, const size_t base_length);
