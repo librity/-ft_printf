@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 18:42:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 01:35:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_handle_int
 	bool			has_minimum_width;
 	int				minimum_width;
 	bool			has_precision;
+	bool			is_zero_with_zero_precision;
 	int				precision;
 }				t_handle_int;
 

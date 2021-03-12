@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 21:49:36 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 08:08:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 01:34:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	initialize_int_control(t_printf *print_control,
 	int_control->has_minimum_width = false;
 	int_control->minimum_width = 0;
 	int_control->has_precision = false;
+	int_control->is_zero_with_zero_precision = false;
 	int_control->precision = 0;
 }
 
