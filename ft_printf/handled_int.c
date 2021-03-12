@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 02:01:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/12 02:32:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	handle_minimum_width(t_printf *print_control,
 		minimum_width = 0;
 	(print_control->chars_printed) += minimum_width;
 	while (minimum_width--)
-		ft_putchar(int_control->padding);
+		ft_putchar(' ');
 }
 
 static void	handle_precision(t_printf *print_control,
@@ -37,6 +37,8 @@ static void	handle_precision(t_printf *print_control,
 	if (int_control->digit_count > (unsigned int)int_control->precision)
 		return ;
 	precision_padding = int_control->precision - int_control->digit_count;
+	if (int_control->print_me < 0 && int_control->has_precision == false)
+		precision_padding--;
 	if (precision_padding < 0)
 		precision_padding = 0;
 	(print_control->chars_printed) += precision_padding;
@@ -75,7 +77,7 @@ static void	handle_right_padding(t_printf *print_control,
 		return ;
 	(print_control->chars_printed) += right_padding;
 	while (right_padding--)
-		ft_putchar(int_control->padding);
+		ft_putchar(' ');
 }
 
 bool		handled_int(t_printf *print_control)

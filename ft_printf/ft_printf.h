@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/11 22:31:54 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/12 02:35:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct	s_handle_int
 	char			*flags;
 	unsigned int	digit_count;
 	unsigned int	char_count;
+	bool			is_left_padded_with_zero;
 	bool			has_wildcards;
 	bool			print_as_padding;
 	bool			has_minimum_width;
