@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 01:54:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 02:05:33 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ char			*ft_itoa(int n);
 unsigned int	ft_i_to_buffer(int n, char *buffer);
 int				ft_atoi(const char *number_pointer);
 unsigned int	ft_atoui(const char *number_pointer);
+unsigned int	ft_atoui_strict(const char *number_pointer);
 
 unsigned int	ft_count_digits(int number);
 unsigned int	ft_count_digits_i(int number);

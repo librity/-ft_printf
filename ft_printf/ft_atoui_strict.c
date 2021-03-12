@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoui.c                                         :+:      :+:    :+:   */
+/*   ft_atoui_strict.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 23:59:17 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 02:08:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 02:09:13 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Takes in a string and parses its digits characters into an unsigned integer.
 */
 
-unsigned int	ft_atoui(const char *number_pointer)
+unsigned int	ft_atoui_strict(const char *number_pointer)
 {
 	int number;
 	int sign;
@@ -42,5 +42,5 @@ unsigned int	ft_atoui(const char *number_pointer)
 		}
 		previous_number = number;
 	}
-	return ((number * sign) < 0 ? (number * -1) : (number * sign));
+	return ((number * sign) < 0 ? 0 : (number * sign));
 }
