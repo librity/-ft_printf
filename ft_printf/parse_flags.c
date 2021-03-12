@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/11 21:46:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/12 02:02:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 static void	parse_precision(t_handle_int *int_control)
 {
 	int_control->flags++;
-	int_control->has_precision = true;
 	int_control->precision = ft_atoi(int_control->flags);
 	if (int_control->precision < 0)
-		int_control->precision = -1 * int_control->precision;
+	{
+		int_control->precision = 0;
+		return;
+	}
+	int_control->has_precision = true;
 	int_control->flags = ft_skip_digits(int_control->flags);
 	if (int_control->precision == 0 && int_control->print_me == 0)
 		int_control->print_as_padding = true;
