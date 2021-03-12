@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/11 21:28:09 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/11 21:43:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ static void	handle_minimum_width(t_printf *print_control,
 		ft_putchar(int_control->padding);
 }
 
+static void	handle_printing(t_printf *print_control, t_handle_int *int_control)
+{
+	if (int_control->print_as_padding)
+		return ;
+	ft_putnbr_i(int_control->print_me);
+	(print_control->chars_printed) += int_control->char_count;
+}
+
 static void	handle_right_padding(t_printf *print_control,
 									t_handle_int *int_control)
 {
@@ -49,11 +57,8 @@ static void	handle_right_padding(t_printf *print_control,
 static void	print_conversion(t_printf *print_control, t_handle_int *int_control)
 {
 	handle_minimum_width(print_control, int_control);
-	if (int_control->print_as_padding)
-		return (handle_right_padding(print_control, int_control));
-	ft_putnbr_i(int_control->print_me);
+	handle_printing(print_control, int_control);
 	handle_right_padding(print_control, int_control);
-	(print_control->chars_printed) += int_control->char_count;
 }
 
 bool		handled_int(t_printf *print_control)
