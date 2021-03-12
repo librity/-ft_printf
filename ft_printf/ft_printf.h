@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 01:35:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 01:54:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ char			*ft_skip_number(char *digits);
 bool			ft_isdigit(int c);
 bool			ft_is_whitespace(char character);
 bool			ft_is_plus_or_minus(char character);
+bool			ft_is_decimal_char(char character);
 
 size_t			ft_strlen(const char *s);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);

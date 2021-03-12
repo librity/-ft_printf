@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/12 18:42:46 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/13 01:54:56 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	ft_skip_digits.c ft_skip_number.c \
 	\
-	ft_isdigit.c ft_is_whitespace.c ft_is_plus_or_minus.c \
+	ft_isdigit.c ft_is_whitespace.c ft_is_plus_or_minus.c ft_is_decimal_char.c \
 	\
 	ft_strlen.c ft_strdel.c ft_strlcat.c ft_strcpy.c ft_substr.c ft_strdup.c \
 	ft_strchr.c ft_strnchr.c ft_memcpy.c \

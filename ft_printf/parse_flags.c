@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 09:01:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 02:01:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,19 @@ static void	parse_precision(t_handle_int *int_control)
 	int_control->flags++;
 	int_control->precision = ft_atoi(int_control->flags);
 	if (int_control->precision < 0)
-	{
-		int_control->flags++;
-		int_control->precision = 0;
-	}
-	int_control->flags = ft_skip_digits(int_control->flags);
+		int_control->precision *= -1;
+	int_control->flags = ft_skip_number(int_control->flags);
 }
 
 static void	parse_width(t_handle_int *int_control)
 {
-	if (ft_isdigit(*(int_control->flags)) == false)
+	if (unless(ft_is_decimal_char(*(int_control->flags))))
 		return ;
 	int_control->has_minimum_width = true;
 	int_control->minimum_width = ft_atoi(int_control->flags);
 	if (int_control->minimum_width < 0)
-	{
-		int_control->flags++;
-		int_control->minimum_width = 0;
-	}
-	int_control->flags = ft_skip_digits(int_control->flags);
+		int_control->minimum_width *= -1;
+	int_control->flags = ft_skip_number(int_control->flags);
 }
 
 static void	parse_modifiers(t_handle_int *int_control)
