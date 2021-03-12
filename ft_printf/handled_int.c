@@ -6,25 +6,26 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/11 19:56:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/11 21:28:09 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	handle_left_padding(t_printf *print_control,
+static void	handle_minimum_width(t_printf *print_control,
 								t_handle_int *int_control)
 {
-	unsigned int left_padding;
+	int minimum_width;
 
-	if (int_control->has_minimum_width == false ||
-		int_control->minimum_width < int_control->char_count)
+	if (int_control->has_minimum_width == false)
 		return ;
-	left_padding = int_control->minimum_width - int_control->char_count;
+	minimum_width = int_control->minimum_width - int_control->char_count;
 	if (int_control->print_as_padding)
-		left_padding++;
-	(print_control->chars_printed) += left_padding;
-	while (left_padding--)
+		minimum_width++;
+	if (minimum_width < 0)
+		minimum_width = 0;
+	(print_control->chars_printed) += minimum_width;
+	while (minimum_width--)
 		ft_putchar(int_control->padding);
 }
 
@@ -47,7 +48,7 @@ static void	handle_right_padding(t_printf *print_control,
 
 static void	print_conversion(t_printf *print_control, t_handle_int *int_control)
 {
-	handle_left_padding(print_control, int_control);
+	handle_minimum_width(print_control, int_control);
 	if (int_control->print_as_padding)
 		return (handle_right_padding(print_control, int_control));
 	ft_putnbr_i(int_control->print_me);
