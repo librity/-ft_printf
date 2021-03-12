@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 02:35:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/12 18:42:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,20 @@ typedef struct	s_printf
 
 typedef struct	s_handle_int
 {
-	int				print_me;
+	long int		print_me;
+	bool			is_negative;
 	char			parsed_flags[ARG_MAX];
 	char			*flags;
 	unsigned int	digit_count;
 	unsigned int	char_count;
-	bool			is_left_padded_with_zero;
 	bool			has_wildcards;
-	bool			print_as_padding;
+	bool			is_left_justified;
+	bool			is_left_padded_with_zeros;
+	char			left_padding;
 	bool			has_minimum_width;
-	unsigned int	minimum_width;
+	int				minimum_width;
 	bool			has_precision;
 	int				precision;
-	char			padding;
-	bool			has_right_padding;
-	int				right_padding;
 }				t_handle_int;
 
 typedef struct	s_parse_wildcards
@@ -121,6 +120,8 @@ unsigned int	ft_count_digits_i(int number);
 unsigned int	ft_count_digits_i(int number);
 unsigned int	ft_count_digits_ui(unsigned int number);
 unsigned int	ft_count_digits_ul(unsigned long number);
+
+unsigned int	ft_count_digits_hex_ui(unsigned int number);
 unsigned int	ft_count_digits_hex_ul(unsigned long number);
 
 unsigned int	ft_count_chars_i(int number);
@@ -148,5 +149,7 @@ char			*ft_strjoin_and_free_free(char *free_me, char *free_me_too);
 char			*ft_strjoin_and_del(char *delete_me,
 									char const *dont_delete_me);
 char			*ft_strjoin_and_del_del(char *delete_me, char *delete_me_too);
+
+bool	unless(bool condition);
 
 #endif

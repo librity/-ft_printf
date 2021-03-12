@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/11 22:31:47 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/12 18:42:46 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	ft_putchar.c ft_putnbr_ul.c ft_putnbr_ui.c \
 	ft_count_digits.c ft_count_digits_ui.c ft_count_digits_i.c \
-	ft_count_digits_ul.c ft_count_digits_hex_ul.c \
+	ft_count_digits_ul.c \
+	\
+	ft_count_digits_hex_ui.c ft_count_digits_hex_ul.c \
 	\
 	ft_count_chars_i.c \
 	\
@@ -57,7 +59,9 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	ft_strchr.c ft_strnchr.c ft_memcpy.c \
 	\
 	ft_strjoin.c ft_strjoin_and_free.c ft_strjoin_and_free_free.c \
-	ft_strjoin_and_del.c ft_strjoin_and_del_del.c
+	ft_strjoin_and_del.c ft_strjoin_and_del_del.c \
+	\
+	unless.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 EXAMPLE_MAIN = example.c

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/05 04:05:56 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/12 18:43:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool	handled_hex(t_printf *print_control)
 		ft_puthex_downcase(print_me);
 	else
 		ft_puthex_uppercase(print_me);
-	(print_control->chars_printed) += 8;
+	(print_control->chars_printed) += ft_count_digits_hex_ul(print_me);
 	(print_control->format) += (print_control->conversion_position) + 1;
 	return (true);
 }
