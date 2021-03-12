@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 21:49:36 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 01:34:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 02:34:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	initialize_int_control(t_printf *print_control,
 	int_control->char_count = 0;
 	int_control->has_wildcards = false;
 	int_control->is_left_padded_with_zeros = false;
+	int_control->left_padder = ' ';
 	int_control->is_left_justified = false;
 	int_control->has_minimum_width = false;
 	int_control->minimum_width = 0;

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 02:05:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/13 02:33:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct	s_handle_int
 	bool			has_wildcards;
 	bool			is_left_justified;
 	bool			is_left_padded_with_zeros;
-	char			left_padding;
+	char			left_padder;
 	bool			has_minimum_width;
 	int				minimum_width;
 	bool			has_precision;
