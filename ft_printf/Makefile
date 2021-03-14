@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/13 03:43:03 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/14 09:32:44 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	ft_is_valid_base.c ft_putnbr_base.c ft_putnbr_base_i.c \
 	ft_putnbr_base_ul.c ft_putnbr_base_li.c ft_putnbr_base_ui.c \
+	\
+	ft_aux_handle_negative_li.c \
 	\
 	ft_putnbr.c ft_putnbr_i.c ft_putnbr_ui.c ft_putnbr_li.c ft_putnbr_ul.c \
 	\

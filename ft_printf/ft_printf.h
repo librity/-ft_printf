@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 18:15:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:32:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void			ft_putnbr_base_i(int number, char *base);
 void			ft_putnbr_base_ui(unsigned int number, const char *base);
 void			ft_putnbr_base_ul(unsigned long number, const char *base);
 void			ft_putnbr_base_li(long int number, const char *base);
+
+void			ft_aux_handle_negative_li(long int *number_pointer);
 
 void			ft_putnbr(int n);
 void			ft_putnbr_i(int number);

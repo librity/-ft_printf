@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 09:21:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:32:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,11 @@ static void	handle_padding(t_printf *print_control, t_handle_int *int_control)
 		ft_putchar(int_control->left_padder);
 }
 
-static void	handle_negative(t_handle_int *int_control)
-{
-	if (int_control->is_negative)
-	{
-		ft_putchar('-');
-		int_control->print_me *= -1;
-	}
-}
-
 static void	handle_left(t_printf *print_control, t_handle_int *int_control)
 {
 	if (int_control->is_left_padded_with_zeros)
 	{
-		handle_negative(int_control);
+		ft_aux_handle_negative_li(&(int_control->print_me));
 		if (unless(int_control->is_left_justified))
 			handle_padding(print_control, int_control);
 		handle_precision(print_control, int_control);
@@ -76,7 +67,7 @@ static void	handle_left(t_printf *print_control, t_handle_int *int_control)
 	}
 	if (unless(int_control->is_left_justified))
 		handle_padding(print_control, int_control);
-	handle_negative(int_control);
+	ft_aux_handle_negative_li(&(int_control->print_me));
 	handle_precision(print_control, int_control);
 }
 
