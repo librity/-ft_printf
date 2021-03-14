@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 18:36:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 18:42:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,7 @@ void			initialize_wildcard_control(t_printf *print_control,
 											*wildcard_control);
 
 bool			handled_no_conversion(t_printf *print_control);
-bool			handled_double_percent(t_printf *print_control);
-
+bool			handled_percent(t_printf *print_control);
 bool			handled_s(t_printf *print_control);
 bool			handled_c(t_printf *print_control);
 bool			handled_int(t_printf *print_control);
