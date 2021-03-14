@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 02:50:38 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:45:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,14 @@ static void	parse_modifiers(t_handle_int *int_control)
 	}
 }
 
-static void	fetch_print_me(t_printf *print_control, t_handle_int *int_control)
-{
-	int_control->print_me = va_arg(print_control->elements, int);
-	int_control->char_count = ft_count_chars_i(int_control->print_me);
-	int_control->digit_count = ft_count_digits_i(int_control->print_me);
-	if (int_control->print_me < 0)
-		int_control->is_negative = true;
-}
-
 void		parse_flags(t_printf *print_control, t_handle_int *int_control)
 {
 	if (print_control->conversion_position == 0)
 	{
 		(print_control->format)++;
-		return (fetch_print_me(print_control, int_control));
+		return ;
 	}
 	parse_wildcars(print_control, int_control);
-	fetch_print_me(print_control, int_control);
 	parse_modifiers(int_control);
 	parse_width(int_control);
 	parse_precision(int_control);

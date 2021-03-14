@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 09:32:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:34:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,6 @@ char			*ft_strjoin_and_del(char *delete_me,
 									char const *dont_delete_me);
 char			*ft_strjoin_and_del_del(char *delete_me, char *delete_me_too);
 
-bool	unless(bool condition);
+bool			unless(bool condition);
 
 #endif
