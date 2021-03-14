@@ -6,9 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 11:23:03 by lpaulo-m@st       #+#    #+#             */
-/*   Updated: 2021/02/26 03:13:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 18:21:13 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// From section 7.3 of "The Ansi C Programming Language"
 
 #include <stdarg.h>
 #include <stdio.h>

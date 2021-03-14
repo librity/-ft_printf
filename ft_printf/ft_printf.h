@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 15:24:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 18:36:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,13 @@ typedef struct	s_parse_wildcards
 	int				wildcard;
 	size_t			parser;
 }				t_parse_wildcards;
+
+typedef struct	s_handle_c
+{
+	unsigned char	print_me;
+	int				char_count;
+	t_parse_flags	flag_control;
+}				t_handle_c;
 
 typedef struct	s_handle_s
 {
@@ -130,6 +137,9 @@ void			parse_flags(t_printf *print_control, t_parse_flags *control);
 void			parse_wildcars(t_printf *print_control,
 								t_parse_flags *flag_control);
 
+void			printf_c(t_printf *print_control,
+							t_handle_c *control,
+							t_parse_flags *flag_control);
 void			printf_s(t_printf *print_control,
 							t_handle_s *control);
 void			printf_int(t_printf *print_control,

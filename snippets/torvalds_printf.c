@@ -13,7 +13,7 @@
  *
  */
 
-// Source: https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c
+// SOURCE: https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c
 
 #include <unistd.h>
 #include <stdlib.h>
