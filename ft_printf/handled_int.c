@@ -6,22 +6,23 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 09:44:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:36:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void	handle_precision(t_printf *print_control,
-								t_handle_int *int_control)
+								t_handle_int *int_control,
+								t_parse_flags *flag_control)
 {
 	int		precision;
 
-	if (unless(int_control->has_precision))
+	if (unless(flag_control->has_precision))
 		return ;
-	if (int_control->precision < (int)int_control->digit_count)
+	if (flag_control->precision < (int)int_control->digit_count)
 		return ;
-	precision = int_control->precision - int_control->digit_count;
+	precision = flag_control->precision - int_control->digit_count;
 	if (precision < 0)
 		precision = 0;
 	(print_control->chars_printed) += precision;
@@ -29,22 +30,24 @@ static void	handle_precision(t_printf *print_control,
 		ft_putchar('0');
 }
 
-static void	handle_padding(t_printf *print_control, t_handle_int *int_control)
+static void	handle_padding(t_printf *print_control,
+							t_handle_int *int_control,
+							t_parse_flags *flag_control)
 {
 	int	padding;
 
-	if (int_control->has_precision)
-		if (int_control->precision >= int_control->minimum_width)
+	if (flag_control->has_precision)
+		if (flag_control->precision >= flag_control->minimum_width)
 			if (unless(int_control->is_zero_with_zero_precision))
 				return ;
-	if (int_control->has_precision &&
-		(int_control->precision > int_control->char_count))
-		padding = int_control->minimum_width - int_control->precision;
+	if (flag_control->has_precision &&
+		(flag_control->precision > int_control->char_count))
+		padding = flag_control->minimum_width - flag_control->precision;
 	else
-		padding = int_control->minimum_width - int_control->char_count;
+		padding = flag_control->minimum_width - int_control->char_count;
 	if (int_control->is_negative)
-		if (int_control->has_minimum_width && int_control->has_precision)
-			if (int_control->precision > int_control->digit_count)
+		if (flag_control->has_minimum_width && flag_control->has_precision)
+			if (flag_control->precision > int_control->digit_count)
 				padding--;
 	if (int_control->is_zero_with_zero_precision)
 		padding++;
@@ -52,35 +55,39 @@ static void	handle_padding(t_printf *print_control, t_handle_int *int_control)
 		return ;
 	(print_control->chars_printed) += padding;
 	while (padding--)
-		ft_putchar(int_control->left_padder);
+		ft_putchar(flag_control->left_padder);
 }
 
-static void	handle_left(t_printf *print_control, t_handle_int *int_control)
+static void	handle_left(t_printf *print_control,
+						t_handle_int *int_control,
+						t_parse_flags *flag_control)
 {
-	if (int_control->is_left_padded_with_zeros)
+	if (flag_control->is_left_padded_with_zeros)
 	{
 		ft_aux_handle_negative_li(&(int_control->print_me));
-		if (unless(int_control->is_left_justified))
-			handle_padding(print_control, int_control);
-		handle_precision(print_control, int_control);
+		if (unless(flag_control->is_left_justified))
+			handle_padding(print_control, int_control, flag_control);
+		handle_precision(print_control, int_control, flag_control);
 		return ;
 	}
-	if (unless(int_control->is_left_justified))
-		handle_padding(print_control, int_control);
+	if (unless(flag_control->is_left_justified))
+		handle_padding(print_control, int_control, flag_control);
 	ft_aux_handle_negative_li(&(int_control->print_me));
-	handle_precision(print_control, int_control);
+	handle_precision(print_control, int_control, flag_control);
 }
 
-static void	handle_printing(t_printf *print_control, t_handle_int *int_control)
+static void	handle_printing(t_printf *print_control,
+							t_handle_int *int_control,
+							t_parse_flags *flag_control)
 {
-	handle_left(print_control, int_control);
+	handle_left(print_control, int_control, flag_control);
 	if (int_control->is_zero_with_zero_precision)
 		return ;
 	ft_putnbr_li(int_control->print_me);
 	(print_control->chars_printed) += int_control->char_count;
 }
 
-static void	fetch_print_me(t_printf *print_control, t_handle_int *int_control)
+static void	set_print_me(t_printf *print_control, t_handle_int *int_control)
 {
 	int_control->print_me = va_arg(print_control->elements, int);
 	int_control->char_count = ft_count_chars_i(int_control->print_me);
@@ -91,18 +98,20 @@ static void	fetch_print_me(t_printf *print_control, t_handle_int *int_control)
 
 bool		handled_int(t_printf *print_control)
 {
-	t_handle_int int_control;
+	t_handle_int	int_control;
+	t_parse_flags	*flag_control;
 
+	flag_control = &(int_control.flag_control);
 	if (print_control->conversion != 'd' && print_control->conversion != 'i')
 		return (false);
 	initialize_int_control(print_control, &int_control);
-	parse_flags(print_control, &int_control);
-	fetch_print_me(print_control, &int_control);
-	if (int_control.has_precision)
-		if (int_control.precision == 0 && int_control.print_me == 0)
+	parse_flags(print_control, flag_control);
+	set_print_me(print_control, &int_control);
+	if (flag_control->has_precision)
+		if (flag_control->precision == 0 && int_control.print_me == 0)
 			int_control.is_zero_with_zero_precision = true;
-	handle_printing(print_control, &int_control);
-	if (int_control.is_left_justified)
-		handle_padding(print_control, &int_control);
+	handle_printing(print_control, &int_control, flag_control);
+	if (flag_control->is_left_justified)
+		handle_padding(print_control, &int_control, flag_control);
 	return (true);
 }

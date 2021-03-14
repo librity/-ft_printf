@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 09:34:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:28:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,19 @@ typedef struct	s_printf
 	char			conversion;
 }				t_printf;
 
-typedef struct	s_handle_int
+typedef struct	s_parse_flags
 {
-	long int		print_me;
-	bool			is_negative;
 	char			parsed_flags[ARG_MAX];
 	char			*flags;
-	int				digit_count;
-	int				char_count;
 	bool			has_wildcards;
-	bool			is_left_justified;
 	bool			is_left_padded_with_zeros;
+	bool			is_left_justified;
 	char			left_padder;
 	bool			has_minimum_width;
 	int				minimum_width;
 	bool			has_precision;
-	bool			is_zero_with_zero_precision;
 	int				precision;
-}				t_handle_int;
+}				t_parse_flags;
 
 typedef struct	s_parse_wildcards
 {
@@ -66,16 +61,28 @@ typedef struct	s_parse_wildcards
 	size_t			parser;
 }				t_parse_wildcards;
 
+typedef struct	s_handle_int
+{
+	long int		print_me;
+	int				digit_count;
+	int				char_count;
+	bool			is_negative;
+	bool			is_zero_with_zero_precision;
+	t_parse_flags	flag_control;
+}				t_handle_int;
+
 int				ft_printf(const char *format, ...);
 void			ft_vprintf(t_printf *print_control);
 
 void			initialize_print_control(t_printf *print_control,
 											const char *format);
-void			initialize_int_control(t_printf *print_control,
-											t_handle_int *int_control);
+void			initialize_flag_control(t_printf *print_control,
+											t_parse_flags *flag_control);
 void			initialize_wildcard_control(t_printf *print_control,
-										t_handle_int *int_control,
-										t_parse_wildcards *wildcard_control);
+											t_parse_flags *flag_control,
+											t_parse_wildcards *wildcard_control);
+void			initialize_int_control(t_printf *print_control,
+										t_handle_int *int_control);
 
 bool			handled_no_conversion(t_printf *print_control);
 bool			handled_double_percent(t_printf *print_control);
@@ -87,9 +94,10 @@ bool			handled_u(t_printf *print_control);
 bool			handled_p(t_printf *print_control);
 bool			handled_hex(t_printf *print_control);
 
-void			parse_flags(t_printf *print_control, t_handle_int *int_control);
+void			parse_flags(t_printf *print_control,
+							t_parse_flags *flag_control);
 void			parse_wildcars(t_printf *print_control,
-								t_handle_int *int_control);
+								t_parse_flags *flag_control);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
