@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 14:15:34 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 15:31:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 static void	set_print_me(t_printf *print_control, t_handle_s *control)
 {
 	control->print_me = va_arg(print_control->elements, char *);
-	control->length = ft_strlen(control->print_me);
 	control->is_null = (control->print_me == NULL);
+	if (control->is_null)
+		control->length = 6;
+	else
+		control->length = ft_strlen(control->print_me);
 }
 
 static void	initialize_control(t_printf *print_control, t_handle_s *control)
