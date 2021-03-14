@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 10:50:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 11:46:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ typedef struct	s_handle_int
 	t_parse_flags	flag_control;
 }				t_handle_int;
 
+typedef struct	s_handle_u
+{
+	unsigned int	print_me;
+	int				digit_count;
+	bool			is_zero_with_zero_precision;
+	t_parse_flags	flag_control;
+}				t_handle_u;
+
 int				ft_printf(const char *format, ...);
 void			ft_vprintf(t_printf *print_control);
 
@@ -84,6 +92,8 @@ void			initialize_wildcard_control(t_printf *print_control,
 											*wildcard_control);
 void			initialize_int_control(t_printf *print_control,
 										t_handle_int *int_control);
+void			initialize_u_control(t_printf *print_control,
+										t_handle_u *u_control);
 
 bool			handled_no_conversion(t_printf *print_control);
 bool			handled_double_percent(t_printf *print_control);
@@ -101,6 +111,9 @@ void			parse_wildcars(t_printf *print_control,
 
 void			printf_int(t_printf *print_control,
 							t_handle_int *control,
+							t_parse_flags *flag_control);
+void			printf_u(t_printf *print_control,
+							t_handle_u *control,
 							t_parse_flags *flag_control);
 
 void			ft_putchar(char c);

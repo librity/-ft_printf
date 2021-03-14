@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 10:50:42 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 11:39:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ bool		handled_int(t_printf *print_control)
 	t_handle_int	control;
 	t_parse_flags	*flag_control;
 
-	flag_control = &(control.flag_control);
 	if (print_control->conversion != 'd' && print_control->conversion != 'i')
 		return (false);
 	initialize_int_control(print_control, &control);
+	flag_control = &(control.flag_control);
 	parse_flags(print_control, flag_control);
 	set_print_me(print_control, &control);
 	if (flag_control->has_precision)
