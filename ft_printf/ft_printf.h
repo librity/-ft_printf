@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 12:40:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:59:42 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct	s_handle_hex
 {
 	unsigned int	print_me;
 	int				digit_count;
+	bool			is_uppercase;
 	bool			is_zero_with_zero_precision;
 	t_parse_flags	flag_control;
 }				t_handle_hex;
@@ -118,6 +119,9 @@ void			printf_int(t_printf *print_control,
 							t_parse_flags *flag_control);
 void			printf_u(t_printf *print_control,
 							t_handle_u *control,
+							t_parse_flags *flag_control);
+void			printf_hex(t_printf *print_control,
+							t_handle_hex *control,
 							t_parse_flags *flag_control);
 
 void			ft_putchar(char c);
