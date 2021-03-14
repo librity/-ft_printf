@@ -6,29 +6,39 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/12 19:04:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 14:52:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void	set_print_me(t_printf *print_control, t_handle_p *control)
+{
+	control->print_me = va_arg(print_control->elements, unsigned long);
+	control->digit_count = ft_count_digits_hex_ul(control->print_me);
+	control->is_null = (control->print_me == 0);
+}
+
+static void	initialize_control(t_printf *print_control,
+									t_handle_p *control)
+{
+	control->print_me = 0;
+	control->digit_count = 0;
+	control->is_null = false;
+	initialize_flag_control(print_control, &(control->flag_control));
+}
+
 bool	handled_p(t_printf *print_control)
 {
-	unsigned long print_me;
+	t_handle_p	control;
+	t_parse_flags	*flag_control;
 
 	if (print_control->conversion != 'p')
 		return (false);
-	print_me = va_arg(print_control->elements, unsigned long);
-	if (print_me == 0)
-	{
-		ft_putstr("(nil)");
-		(print_control->chars_printed) += 5;
-		(print_control->format) += (print_control->conversion_position) + 1;
-		return (true);
-	}
-	ft_putstr("0x");
-	ft_putnbr_base_ul(print_me, DOWNCASE_HEX_BASE);
-	(print_control->chars_printed) += ft_count_digits_hex_ul(print_me) + 2;
-	(print_control->format) += (print_control->conversion_position) + 1;
+	initialize_control(print_control, &control);
+	flag_control = &(control.flag_control);
+	parse_flags(print_control, flag_control);
+	set_print_me(print_control, &control);
+	printf_p(print_control, &control, flag_control);
 	return (true);
 }

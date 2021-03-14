@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 14:14:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 14:51:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,14 @@ typedef struct	s_handle_u
 	t_parse_flags	flag_control;
 }				t_handle_u;
 
+typedef struct	s_handle_p
+{
+	unsigned long	print_me;
+	int				digit_count;
+	bool			is_null;
+	t_parse_flags	flag_control;
+}				t_handle_p;
+
 typedef struct	s_handle_hex
 {
 	unsigned int	print_me;
@@ -129,6 +137,9 @@ void			printf_int(t_printf *print_control,
 							t_parse_flags *flag_control);
 void			printf_u(t_printf *print_control,
 							t_handle_u *control,
+							t_parse_flags *flag_control);
+void			printf_p(t_printf *print_control,
+							t_handle_p *control,
 							t_parse_flags *flag_control);
 void			printf_hex(t_printf *print_control,
 							t_handle_hex *control,
