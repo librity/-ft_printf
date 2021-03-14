@@ -6,28 +6,38 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/08 02:39:18 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 14:15:34 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool	handled_s(t_printf *print_control)
+static void	set_print_me(t_printf *print_control, t_handle_s *control)
 {
-	char *print_me;
+	control->print_me = va_arg(print_control->elements, char *);
+	control->length = ft_strlen(control->print_me);
+	control->is_null = (control->print_me == NULL);
+}
+
+static void	initialize_control(t_printf *print_control, t_handle_s *control)
+{
+	control->print_me = NULL;
+	control->length = 0;
+	control->is_null = false;
+	initialize_flag_control(print_control, &(control->flag_control));
+}
+
+bool		handled_s(t_printf *print_control)
+{
+	t_handle_s	control;
+	t_parse_flags	*flag_control;
 
 	if (print_control->conversion != 's')
 		return (false);
-	print_me = va_arg(print_control->elements, char *);
-	if (print_me == NULL)
-	{
-		ft_putstr("(null)");
-		(print_control->chars_printed) += 6;
-		(print_control->format) += (print_control->conversion_position) + 1;
-		return (true);
-	}
-	ft_putstr(print_me);
-	(print_control->chars_printed) += ft_strlen(print_me);
-	(print_control->format) += (print_control->conversion_position) + 1;
+	initialize_control(print_control, &control);
+	flag_control = &(control.flag_control);
+	parse_flags(print_control, flag_control);
+	set_print_me(print_control, &control);
+	printf_s(print_control, &control);
 	return (true);
 }

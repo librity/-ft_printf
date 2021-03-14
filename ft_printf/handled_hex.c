@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 13:09:10 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 14:09:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	set_print_me(t_printf *print_control, t_handle_hex *control)
 	control->digit_count = ft_count_digits_hex_ul(control->print_me);
 }
 
-static void	initialize_hex_control(t_printf *print_control,
+static void	initialize_control(t_printf *print_control,
 									t_handle_hex *control)
 {
 	control->print_me = 0;
@@ -42,7 +42,7 @@ bool		handled_hex(t_printf *print_control)
 
 	if (print_control->conversion != 'x' && print_control->conversion != 'X')
 		return (false);
-	initialize_hex_control(print_control, &control);
+	initialize_control(print_control, &control);
 	flag_control = &(control.flag_control);
 	parse_flags(print_control, flag_control);
 	set_print_me(print_control, &control);

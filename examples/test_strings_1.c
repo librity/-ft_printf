@@ -3,38 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_strings_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   Byprint
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT
-PRINT: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 03:16:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 13:19:24 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2021/03/14 14:24:05 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2021/03/14 14:24:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +78,8 @@ int main(void)
 	a = -4;
 	while (a < 5)
 	{
+		printf("--------------\n");
 		printf("a = %d;\n", a);
-		printf("--------------");
 
 		printf("\n------- %d -------\n", counter++);
 		printf(" --- Return : %d\n", printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
@@ -130,9 +102,9 @@ int main(void)
 		b = -2;
 		while (b < 5)
 		{
+			printf("--------------\n");
 			printf("a = %d;\n", a);
 			printf("b = %d;\n", b);
-			printf("--------------");
 
 			printf("\n------- %d -------\n", counter++);
 			printf(" --- Return : %d\n", printf("%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u));

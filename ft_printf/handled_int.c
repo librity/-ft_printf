@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 12:54:42 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 14:09:34 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	set_print_me(t_printf *print_control, t_handle_int *control)
 		control->is_negative = true;
 }
 
-static void	initialize_int_control(t_printf *print_control,
+static void	initialize_control(t_printf *print_control,
 									t_handle_int *control)
 {
 	control->print_me = 0;
@@ -46,7 +46,7 @@ bool		handled_int(t_printf *print_control)
 
 	if (print_control->conversion != 'd' && print_control->conversion != 'i')
 		return (false);
-	initialize_int_control(print_control, &control);
+	initialize_control(print_control, &control);
 	flag_control = &(control.flag_control);
 	parse_flags(print_control, flag_control);
 	set_print_me(print_control, &control);
