@@ -6,40 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 08:14:16 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:21:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	handle_right_padding(t_printf *print_control,
-									t_handle_int *int_control)
-{
-	int right_padding;
-
-	if (unless(int_control->is_left_justified))
-		return ;
-	if (int_control->has_precision)
-		if (int_control->precision >= int_control->minimum_width)
-			if (unless(int_control->is_zero_with_zero_precision))
-				return ;
-	if (int_control->has_precision &&
-		(int_control->precision > int_control->char_count))
-		right_padding = int_control->minimum_width - int_control->precision;
-	else
-		right_padding = int_control->minimum_width - int_control->char_count;
-	if (int_control->is_negative)
-		if (int_control->has_minimum_width && int_control->has_precision)
-			if (int_control->precision > int_control->digit_count)
-				right_padding--;
-	if (int_control->is_zero_with_zero_precision)
-		right_padding++;
-	if (right_padding <= 0)
-		return ;
-	(print_control->chars_printed) += right_padding;
-	while (right_padding--)
-		ft_putchar(' ');
-}
 
 static void	handle_precision(t_printf *print_control,
 								t_handle_int *int_control)
@@ -58,32 +29,29 @@ static void	handle_precision(t_printf *print_control,
 		ft_putchar('0');
 }
 
-static void	handle_left_padding(t_printf *print_control,
-									t_handle_int *int_control)
+static void	handle_padding(t_printf *print_control, t_handle_int *int_control)
 {
-	int		left_padding;
+	int	padding;
 
-	if (int_control->is_left_justified)
-		return ;
 	if (int_control->has_precision)
 		if (int_control->precision >= int_control->minimum_width)
 			if (unless(int_control->is_zero_with_zero_precision))
 				return ;
 	if (int_control->has_precision &&
 		(int_control->precision > int_control->char_count))
-		left_padding = int_control->minimum_width - int_control->precision;
+		padding = int_control->minimum_width - int_control->precision;
 	else
-		left_padding = int_control->minimum_width - int_control->char_count;
+		padding = int_control->minimum_width - int_control->char_count;
 	if (int_control->is_negative)
 		if (int_control->has_minimum_width && int_control->has_precision)
 			if (int_control->precision > int_control->digit_count)
-				left_padding--;
+				padding--;
 	if (int_control->is_zero_with_zero_precision)
-		left_padding++;
-	if (left_padding <= 0)
+		padding++;
+	if (padding <= 0)
 		return ;
-	(print_control->chars_printed) += left_padding;
-	while (left_padding--)
+	(print_control->chars_printed) += padding;
+	while (padding--)
 		ft_putchar(int_control->left_padder);
 }
 
@@ -101,11 +69,13 @@ static void	handle_left(t_printf *print_control, t_handle_int *int_control)
 	if (int_control->is_left_padded_with_zeros)
 	{
 		handle_negative(int_control);
-		handle_left_padding(print_control, int_control);
+		if (unless(int_control->is_left_justified))
+			handle_padding(print_control, int_control);
 		handle_precision(print_control, int_control);
 		return ;
 	}
-	handle_left_padding(print_control, int_control);
+	if (unless(int_control->is_left_justified))
+		handle_padding(print_control, int_control);
 	handle_negative(int_control);
 	handle_precision(print_control, int_control);
 }
@@ -131,6 +101,7 @@ bool		handled_int(t_printf *print_control)
 		if (int_control.precision == 0 && int_control.print_me == 0)
 			int_control.is_zero_with_zero_precision = true;
 	handle_printing(print_control, &int_control);
-	handle_right_padding(print_control, &int_control);
+	if (int_control.is_left_justified)
+		handle_padding(print_control, &int_control);
 	return (true);
 }
