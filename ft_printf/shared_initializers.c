@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initializers.c                                     :+:      :+:    :+:   */
+/*   shared_initializers.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 21:49:36 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 11:38:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:33:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,4 @@ void	initialize_wildcard_control(t_printf *print_control,
 										wildcard_control->conversion_position);
 	wildcard_control->parser = 0;
 	wildcard_control->wildcard = 0;
-}
-
-void	initialize_int_control(t_printf *print_control,
-								t_handle_int *int_control)
-{
-	int_control->print_me = 0;
-	int_control->digit_count = 0;
-	int_control->char_count = 0;
-	int_control->is_negative = false;
-	int_control->is_zero_with_zero_precision = false;
-	initialize_flag_control(print_control, &(int_control->flag_control));
-}
-
-void	initialize_u_control(t_printf *print_control,
-								t_handle_u *u_control)
-{
-	u_control->print_me = 0;
-	u_control->digit_count = 0;
-	u_control->is_zero_with_zero_precision = false;
-	initialize_flag_control(print_control, &(u_control->flag_control));
 }

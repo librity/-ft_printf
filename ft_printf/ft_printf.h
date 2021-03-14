@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 11:46:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:40:05 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@ typedef struct	s_handle_u
 	t_parse_flags	flag_control;
 }				t_handle_u;
 
+typedef struct	s_handle_hex
+{
+	unsigned int	print_me;
+	int				digit_count;
+	bool			is_zero_with_zero_precision;
+	t_parse_flags	flag_control;
+}				t_handle_hex;
+
 int				ft_printf(const char *format, ...);
 void			ft_vprintf(t_printf *print_control);
 
@@ -90,10 +98,6 @@ void			initialize_wildcard_control(t_printf *print_control,
 											t_parse_flags *flag_control,
 											t_parse_wildcards
 											*wildcard_control);
-void			initialize_int_control(t_printf *print_control,
-										t_handle_int *int_control);
-void			initialize_u_control(t_printf *print_control,
-										t_handle_u *u_control);
 
 bool			handled_no_conversion(t_printf *print_control);
 bool			handled_double_percent(t_printf *print_control);
