@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 10:39:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:50:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void			initialize_flag_control(t_printf *print_control,
 											t_parse_flags *flag_control);
 void			initialize_wildcard_control(t_printf *print_control,
 											t_parse_flags *flag_control,
-											t_parse_wildcards *wildcard_control);
+											t_parse_wildcards
+											*wildcard_control);
 void			initialize_int_control(t_printf *print_control,
 										t_handle_int *int_control);
 
@@ -97,6 +98,10 @@ bool			handled_hex(t_printf *print_control);
 void			parse_flags(t_printf *print_control, t_parse_flags *control);
 void			parse_wildcars(t_printf *print_control,
 								t_parse_flags *flag_control);
+
+void			printf_int(t_printf *print_control,
+							t_handle_int *control,
+							t_parse_flags *flag_control);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
