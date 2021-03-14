@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 18:38:38 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 08:14:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static void	handle_right_padding(t_printf *print_control,
 		right_padding = int_control->minimum_width - int_control->precision;
 	else
 		right_padding = int_control->minimum_width - int_control->char_count;
+	if (int_control->is_negative)
+		if (int_control->has_minimum_width && int_control->has_precision)
+			if (int_control->precision > int_control->digit_count)
+				right_padding--;
 	if (int_control->is_zero_with_zero_precision)
 		right_padding++;
 	if (right_padding <= 0)
@@ -70,6 +74,10 @@ static void	handle_left_padding(t_printf *print_control,
 		left_padding = int_control->minimum_width - int_control->precision;
 	else
 		left_padding = int_control->minimum_width - int_control->char_count;
+	if (int_control->is_negative)
+		if (int_control->has_minimum_width && int_control->has_precision)
+			if (int_control->precision > int_control->digit_count)
+				left_padding--;
 	if (int_control->is_zero_with_zero_precision)
 		left_padding++;
 	if (left_padding <= 0)
