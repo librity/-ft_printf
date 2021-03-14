@@ -6,67 +6,66 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 10:28:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:39:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	parse_precision(t_parse_flags *flag_control)
+static void	parse_precision(t_parse_flags *control)
 {
-	if (*(flag_control->flags) != '.')
+	if (*(control->flags) != '.')
 		return ;
-	flag_control->flags++;
-	flag_control->precision = ft_atoi(flag_control->flags);
-	if (flag_control->precision < 0)
+	control->flags++;
+	control->precision = ft_atoi(control->flags);
+	if (control->precision < 0)
 	{
-		flag_control->precision = 0;
+		control->precision = 0;
 		return ;
 	}
-	flag_control->has_precision = true;
-	flag_control->flags = ft_skip_number(flag_control->flags);
+	control->has_precision = true;
+	control->flags = ft_skip_number(control->flags);
 }
 
-static void	parse_width(t_parse_flags *flag_control)
+static void	parse_width(t_parse_flags *control)
 {
-	if (unless(ft_is_decimal_char(*(flag_control->flags))))
+	if (unless(ft_is_decimal_char(*(control->flags))))
 		return ;
-	flag_control->has_minimum_width = true;
-	flag_control->minimum_width = ft_atoui(flag_control->flags);
-	flag_control->flags = ft_skip_number(flag_control->flags);
+	control->has_minimum_width = true;
+	control->minimum_width = ft_atoui(control->flags);
+	control->flags = ft_skip_number(control->flags);
 }
 
-static void	parse_modifiers(t_parse_flags *flag_control)
+static void	parse_modifiers(t_parse_flags *control)
 {
-	if (*(flag_control->flags) == '0')
+	if (*(control->flags) == '0')
 	{
-		flag_control->is_left_padded_with_zeros = true;
-		flag_control->left_padder = '0';
-		flag_control->flags++;
+		control->is_left_padded_with_zeros = true;
+		control->left_padder = '0';
+		control->flags++;
 	}
-	if (*(flag_control->flags) == '-')
+	if (*(control->flags) == '-')
 	{
-		flag_control->is_left_justified = true;
-		flag_control->flags++;
+		control->is_left_justified = true;
+		control->flags++;
 	}
 }
 
-void		parse_flags(t_printf *print_control,
-						t_parse_flags *flag_control)
+void		parse_flags(t_printf *print_control, t_parse_flags *control)
 {
 	if (print_control->conversion_position == 0)
 	{
 		(print_control->format)++;
 		return ;
 	}
-	parse_wildcars(print_control, flag_control);
-	parse_modifiers(flag_control);
-	parse_width(flag_control);
-	parse_precision(flag_control);
-	if (flag_control->is_left_justified || flag_control->has_precision)
+	parse_wildcars(print_control, control);
+	parse_modifiers(control);
+	parse_width(control);
+	parse_precision(control);
+	if (control->is_left_justified || control->has_precision)
 	{
-		flag_control->is_left_padded_with_zeros = false;
-		flag_control->left_padder = ' ';
+		control->is_left_padded_with_zeros = false;
+		control->left_padder = ' ';
 	}
 	(print_control->format) += (print_control->conversion_position) + 1;
 }

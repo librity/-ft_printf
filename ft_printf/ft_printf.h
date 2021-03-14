@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 10:28:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:39:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,7 @@ bool			handled_u(t_printf *print_control);
 bool			handled_p(t_printf *print_control);
 bool			handled_hex(t_printf *print_control);
 
-void			parse_flags(t_printf *print_control,
-							t_parse_flags *flag_control);
+void			parse_flags(t_printf *print_control, t_parse_flags *control);
 void			parse_wildcars(t_printf *print_control,
 								t_parse_flags *flag_control);
 
