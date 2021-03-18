@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/17 22:15:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 23:56:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct	s_handle_s
 {
 	char			*print_me;
 	size_t			length;
+	size_t			precision_length;
 	bool			is_null;
 	t_parse_flags	flag_control;
 }				t_handle_s;

@@ -6,26 +6,36 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/17 22:09:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 23:56:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	set_print_me(t_printf *print_control, t_handle_s *control)
+static void	set_print_me(t_printf *print_control,
+							t_handle_s *control,
+							t_parse_flags *flag_control)
 {
 	control->print_me = va_arg(print_control->elements, char *);
 	control->is_null = (control->print_me == NULL);
 	if (control->is_null)
+	{
 		control->length = 6;
+		return ;
+	}
+	control->length = ft_strlen(control->print_me);
+	if (flag_control->has_precision &&
+		(size_t)flag_control->precision < control->length)
+		control->precision_length = flag_control->precision;
 	else
-		control->length = ft_strlen(control->print_me);
+		control->precision_length = control->length;
 }
 
 static void	initialize_control(t_printf *print_control, t_handle_s *control)
 {
 	control->print_me = NULL;
 	control->length = 0;
+	control->precision_length = 0;
 	control->is_null = false;
 	initialize_flag_control(print_control, &(control->flag_control));
 }
@@ -40,7 +50,7 @@ bool		handled_s(t_printf *print_control)
 	initialize_control(print_control, &control);
 	flag_control = &(control.flag_control);
 	parse_flags(print_control, flag_control);
-	set_print_me(print_control, &control);
+	set_print_me(print_control, &control, flag_control);
 	printf_s(print_control, &control, flag_control);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/17 23:14:43 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 23:58:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void handle_padding(t_printf *print_control,
 	int padding;
 
 	if (flag_control->has_precision)
-		if (flag_control->precision >= flag_control->minimum_width)
+		if (control->precision_length > (size_t)flag_control->minimum_width)
 			return;
 	if (flag_control->has_precision)
-		padding = flag_control->minimum_width - flag_control->precision;
+		padding = flag_control->minimum_width - control->precision_length;
 	else
 		padding = flag_control->minimum_width - control->length;
 	if (padding <= 0)
@@ -44,11 +44,8 @@ static void	handle_printing(t_printf *print_control,
 	}
 	if (flag_control->has_precision)
 	{
-		ft_putstr_up_to(control->print_me, flag_control->precision);
-		if ((size_t)flag_control->precision < control->length)
-			(print_control->chars_printed) += flag_control->precision;
-		else
-			(print_control->chars_printed) += control->length;
+		ft_putstr_up_to(control->print_me, control->precision_length);
+		(print_control->chars_printed) += control->precision_length;
 		return;
 	}
 	ft_putstr(control->print_me);
