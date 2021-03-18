@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: make
-        run: make
-        working-directory: ./ft_printf/PFT_2019
+        run: make re
+        working-directory: ./ft_printf/pft_2019
       - name: run_test
         run: ./test
-        working-directory: ./ft_printf/PFT_2019
+        working-directory: ./ft_printf/pft_2019
       - name: results.txt
         run: cat results.txt
-        working-directory: ./ft_printf/PFT_2019
+        working-directory: ./ft_printf/pft_2019
