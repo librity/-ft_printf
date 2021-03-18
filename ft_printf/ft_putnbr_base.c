@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 07:42:34 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 09:30:36 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:54:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	print_number_with_base(int nb, const int base_length, char *base)
 	long int	number;
 
 	number = nb;
-	ft_aux_handle_negative_li(&number);
+	ft_aux_handle_minus_sign_li(&number);
 	if (number >= base_length)
 		print_number_with_base(number / base_length, base_length, base);
 	ft_putchar(base[number % base_length]);

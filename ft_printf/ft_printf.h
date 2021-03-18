@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 18:42:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:58:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 # include <stdbool.h>
 # include <limits.h>
 
-// REMOVE THESE BEFORE SUBMITTING
+// REMOVE THIS BEFORE SUBMITTING
 #ifdef __linux__
 # include <stdio.h>
 # define ARG_MAX 131072
 #endif
-// REMOVE THESE BEFORE SUBMITTING
+// REMOVE THIS BEFORE SUBMITTING
 
 # define DECIMAL_BASE "0123456789"
 # define DOWNCASE_HEX_BASE "0123456789abcdef"
@@ -61,6 +61,13 @@ typedef struct	s_parse_wildcards
 	size_t			parser;
 }				t_parse_wildcards;
 
+typedef struct	s_handle_percent
+{
+	unsigned char	print_me;
+	int				char_count;
+	t_parse_flags	flag_control;
+}				t_handle_percent;
+
 typedef struct	s_handle_c
 {
 	unsigned char	print_me;
@@ -71,7 +78,7 @@ typedef struct	s_handle_c
 typedef struct	s_handle_s
 {
 	char			*print_me;
-	size_t 			length;
+	size_t			length;
 	bool			is_null;
 	t_parse_flags	flag_control;
 }				t_handle_s;
@@ -136,6 +143,9 @@ void			parse_flags(t_printf *print_control, t_parse_flags *control);
 void			parse_wildcars(t_printf *print_control,
 								t_parse_flags *flag_control);
 
+void			printf_percent(t_printf *print_control,
+								t_handle_percent *control,
+								t_parse_flags *flag_control);
 void			printf_c(t_printf *print_control,
 							t_handle_c *control,
 							t_parse_flags *flag_control);
@@ -166,7 +176,7 @@ void			ft_putnbr_base_ui(unsigned int number, const char *base);
 void			ft_putnbr_base_ul(unsigned long number, const char *base);
 void			ft_putnbr_base_li(long int number, const char *base);
 
-void			ft_aux_handle_negative_li(long int *number_pointer);
+void			ft_aux_handle_minus_sign_li(long int *number_pointer);
 
 void			ft_putnbr(int n);
 void			ft_putnbr_i(int number);
