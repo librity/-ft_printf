@@ -5,5 +5,4 @@ check_leaks
 *.ghc
 *.dSYM
 result.log
-generated.c
 tags

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/06 18:13:15 by cacharle          #+#    #+#              #
-#    Updated: 2021/01/31 03:25:48 by charles          ###   ########.fr        #
+#    Updated: 2021/03/18 02:44:30 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FT_PRINTF_PATH = ../ft_printf
+FT_PRINTF_PATH = ..
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Wno-trigraphs  # Adding -std=c99 causes crash
