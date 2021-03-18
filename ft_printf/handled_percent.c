@@ -6,13 +6,14 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:37 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 19:47:01 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 19:58:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	initialize_control(t_printf *print_control, t_handle_percent *control)
+static void	initialize_control(t_printf *print_control,
+								t_handle_percent *control)
 {
 	control->print_me = '%';
 	control->char_count = 1;
@@ -23,7 +24,7 @@ bool		handled_percent(t_printf *print_control)
 {
 	t_handle_percent	control;
 	t_parse_flags		*flag_control;
-	
+
 	if (print_control->conversion != '%')
 		return (false);
 	initialize_control(print_control, &control);

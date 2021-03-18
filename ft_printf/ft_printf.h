@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 19:42:47 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 20:32:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define DECIMAL_BASE "0123456789"
 # define DOWNCASE_HEX_BASE "0123456789abcdef"
 # define UPPERCASE_HEX_BASE "0123456789ABCDEF"
+
+# define NULL_STRING "(null)"
 
 typedef struct	s_printf
 {

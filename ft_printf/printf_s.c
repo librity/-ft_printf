@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 01:16:56 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 20:34:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ static void	handle_printing(t_printf *print_control,
 							t_handle_s *control,
 							t_parse_flags *flag_control)
 {
-	if (unless(flag_control->has_precision))
-		if (control->is_null)
-		{
-			ft_putstr("(null)");
-			(print_control->chars_printed) += 6;
-			return;
-		}
 	if (flag_control->has_precision)
 	{
 		ft_putstr_up_to(control->print_me, control->precision_length);
