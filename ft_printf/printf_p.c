@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 14:55:06 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 00:28:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void		printf_p(t_printf *print_control,
 	{
 		ft_putstr("(nil)");
 		(print_control->chars_printed) += 5;
+		if (flag_control->is_left_justified)
+			handle_padding(print_control, control, flag_control);
 		return ;
 	}
 	ft_putstr("0x");
