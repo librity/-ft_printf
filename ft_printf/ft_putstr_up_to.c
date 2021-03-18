@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:38 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/13 03:42:06 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 22:50:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	ft_putstr_up_to(char *s, size_t up_to)
 	control = 0;
 	if (s == NULL)
 		return ;
-	while (s[control] != '\0' && control <= up_to)
+	while (s[control] != '\0' && control < up_to)
 		ft_putchar(s[control++]);
 }
