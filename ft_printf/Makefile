@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/18 01:21:43 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/18 17:04:29 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = libftprintf.a
 
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-DEBUG_CC_FLAGS = -g
-# DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror
+DEBUG_CC_FLAGS = -g -fsanitize=address -fno-omit-frame-pointer
+# DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
 
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
