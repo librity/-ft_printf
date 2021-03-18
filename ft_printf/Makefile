@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/17 21:59:38 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/17 22:06:51 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	handled_no_conversion.c handled_percent.c handled_s.c handled_c.c \
 	handled_int.c handled_u.c handled_hex.c handled_p.c \
 	\
-	shared_initializers.c \
+	printf_initializers.c \
 	\
 	printf_percent.c printf_c.c printf_s.c printf_int.c printf_u.c printf_p.c \
 	printf_hex.c \

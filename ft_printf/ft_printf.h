@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/17 21:58:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 22:15:35 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,8 @@ void			printf_c(t_printf *print_control,
 							t_handle_c *control,
 							t_parse_flags *flag_control);
 void			printf_s(t_printf *print_control,
-							t_handle_s *control);
+							t_handle_s *control,
+							t_parse_flags *flag_control);
 void			printf_int(t_printf *print_control,
 							t_handle_int *control,
 							t_parse_flags *flag_control);

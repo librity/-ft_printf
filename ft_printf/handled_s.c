@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 15:31:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/17 22:09:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ bool		handled_s(t_printf *print_control)
 	flag_control = &(control.flag_control);
 	parse_flags(print_control, flag_control);
 	set_print_me(print_control, &control);
-	printf_s(print_control, &control);
+	printf_s(print_control, &control, flag_control);
 	return (true);
 }
