@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:00:32 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 18:38:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 19:44:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	set_print_me(t_printf *print_control, t_handle_c *control)
 
 static void	initialize_control(t_printf *print_control, t_handle_c *control)
 {
-	control->print_me = 0;
+	control->print_me = '\0';
 	control->char_count = 1;
 	initialize_flag_control(print_control, &(control->flag_control));
 }

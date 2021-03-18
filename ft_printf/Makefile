@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/18 17:04:29 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/18 19:43:46 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SOURCES = ft_printf.c ft_vprintf.c \
 	\
 	printf_initializers.c \
 	\
-	printf_c.c printf_s.c printf_int.c printf_u.c printf_p.c printf_hex.c \
+	printf_percent.c printf_c.c printf_s.c printf_int.c printf_u.c printf_p.c printf_hex.c \
 	\
 	ft_itoa.c ft_i_to_buffer.c ft_atoi.c ft_atoui.c ft_atoui_strict.c \
 	\
