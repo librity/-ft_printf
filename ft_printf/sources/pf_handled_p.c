@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handled_p.c                                        :+:      :+:    :+:   */
+/*   pf_handled_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 02:58:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 04:11:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static void	interpret_flags(t_parse_flags *flag_control, t_handle_p *control)
 			control->is_zero_with_zero_precision = true;
 }
 
-bool	handled_p(t_printf *print_control)
+bool		handled_p(t_printf *print_control)
 {
-	t_handle_p	control;
+	t_handle_p		control;
 	t_parse_flags	*flag_control;
 
 	if (print_control->conversion != 'p')

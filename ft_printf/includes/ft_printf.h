@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 03:43:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 04:09:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 # include <stdarg.h>
 # include <stdbool.h>
 # include <limits.h>
-
-# define ARG_MAX 123456
-
-# define DECIMAL_BASE "0123456789"
-# define DOWNCASE_HEX_BASE "0123456789abcdef"
-# define UPPERCASE_HEX_BASE "0123456789ABCDEF"
 
 # define NULL_STRING "(null)"
 

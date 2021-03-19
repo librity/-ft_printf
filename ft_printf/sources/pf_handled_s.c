@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handled_s.c                                        :+:      :+:    :+:   */
+/*   pf_handled_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:59 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 02:58:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 04:14:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	initialize_control(t_printf *print_control, t_handle_s *control)
 
 bool		handled_s(t_printf *print_control)
 {
-	t_handle_s	control;
+	t_handle_s		control;
 	t_parse_flags	*flag_control;
 
 	if (print_control->conversion != 's')

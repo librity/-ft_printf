@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handled_c.c                                        :+:      :+:    :+:   */
+/*   pf_handled_c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:00:32 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 02:58:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 04:10:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void	initialize_control(t_printf *print_control, t_handle_c *control)
 	initialize_flag_control(print_control, &(control->flag_control));
 }
 
-bool	handled_c(t_printf *print_control)
+bool		handled_c(t_printf *print_control)
 {
-	t_handle_c	control;
+	t_handle_c		control;
 	t_parse_flags	*flag_control;
 
 	if (print_control->conversion != 'c')

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_hex.c                                       :+:      :+:    :+:   */
+/*   pf_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 02:58:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 04:13:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,6 @@ static void	handle_left(t_printf *print_control,
 						t_handle_hex *control,
 						t_parse_flags *flag_control)
 {
-	if (flag_control->is_left_padded_with_zeros)
-	{
-		if (unless(flag_control->is_left_justified))
-			handle_padding(print_control, control, flag_control);
-		handle_precision(print_control, control, flag_control);
-		return ;
-	}
 	if (unless(flag_control->is_left_justified))
 		handle_padding(print_control, control, flag_control);
 	handle_precision(print_control, control, flag_control);
