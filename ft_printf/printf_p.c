@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 22:06:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 22:10:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,6 @@ void		printf_p(t_printf *print_control,
 						t_parse_flags *flag_control)
 {
 	handle_left(print_control, control, flag_control);
-	// if (control->is_null)
-	// {
-	// 	ft_putstr("(nil)");
-	// 	(print_control->chars_printed) += 5;
-	// 	if (flag_control->is_left_justified)
-	// 		handle_padding(print_control, control, flag_control);
-	// 	return ;
-	// }
 	ft_putstr("0x");
 	ft_putnbr_base_ul(control->print_me, DOWNCASE_HEX_BASE);
 	(print_control->chars_printed) += ft_count_digits_hex_ul(control->print_me) + 2;

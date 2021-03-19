@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 20:32:40 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 22:18:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ typedef struct	s_handle_p
 {
 	unsigned long	print_me;
 	int				digit_count;
-	bool			is_null;
 	t_parse_flags	flag_control;
 }				t_handle_p;
 
