@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:37 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 19:58:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 00:08:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ static void	initialize_control(t_printf *print_control,
 	initialize_flag_control(print_control, &(control->flag_control));
 }
 
+static void	interpret_flags(t_parse_flags *flag_control)
+{
+	if (flag_control->is_left_justified)
+		flag_control->left_padder = ' ';
+}
+
 bool		handled_percent(t_printf *print_control)
 {
 	t_handle_percent	control;
@@ -30,6 +36,7 @@ bool		handled_percent(t_printf *print_control)
 	initialize_control(print_control, &control);
 	flag_control = &(control.flag_control);
 	parse_flags(print_control, flag_control);
+	interpret_flags(flag_control);
 	printf_percent(print_control, &control, flag_control);
 	return (true);
 }

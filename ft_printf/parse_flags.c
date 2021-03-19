@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 21:56:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 00:05:41 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ void		parse_flags(t_printf *print_control, t_parse_flags *control)
 	parse_modifiers(control);
 	parse_width(control);
 	parse_precision(control);
-	if (control->is_left_justified || control->has_precision)
-	{
-		control->is_left_padded_with_zeros = false;
-		control->left_padder = ' ';
-	}
+	if (print_control->conversion != '%')
+		if (control->is_left_justified || control->has_precision)
+		{
+			control->is_left_padded_with_zeros = false;
+			control->left_padder = ' ';
+		}
 	(print_control->format) += (print_control->conversion_position) + 1;
 }
