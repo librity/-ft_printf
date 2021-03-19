@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/19 02:43:50 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/19 03:03:55 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,25 +14,30 @@ NAME = libftprintf.a
 
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-DEBUG_CC_FLAGS = -g
-# DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
+DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
 
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
 ARCHIVE_AND_INDEX = ar -rcs
 
+SRC_PATH = ./src
+OBJ_PATH = ./obj
+LIB_PATH = ./lib
+INC_PATH = -I ./include
+
 HEADER = ft_printf.h
 
 SOURCES = ft_printf.c ft_vprintf.c \
 	\
-	parse_flags.c parse_wildcars.c \
+	pf_parse_flags.c pf_parse_wildcars.c \
 	\
-	handled_no_conversion.c handled_percent.c handled_s.c handled_c.c \
-	handled_int.c handled_u.c handled_hex.c handled_p.c \
+	pf_handled_no_conversion.c pf_handled_percent.c pf_handled_s.c
+	pf_handled_c.c pf_handled_int.c pf_handled_u.c \
+	pf_handled_hex.c pf_handled_p.c \
 	\
-	printf_initializers.c \
+	pf_initializers.c \
 	\
-	printf_percent.c printf_c.c printf_s.c printf_int.c printf_u.c printf_p.c printf_hex.c
+	pf_percent.c pf_c.c pf_s.c pf_int.c pf_u.c pf_p.c pf_hex.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 EXAMPLE_MAIN = example.c

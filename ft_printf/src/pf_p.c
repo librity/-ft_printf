@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_hex.c                                       :+:      :+:    :+:   */
+/*   printf_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/14 13:06:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 02:58:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <ft_printf.h>
 
 static void	handle_precision(t_printf *print_control,
-								t_handle_hex *control,
+								t_handle_p *control,
 								t_parse_flags *flag_control)
 {
 	int		precision;
@@ -23,6 +23,7 @@ static void	handle_precision(t_printf *print_control,
 	if (flag_control->precision < (int)control->digit_count)
 		return ;
 	precision = flag_control->precision - control->digit_count;
+	precision += 2;
 	if (precision < 0)
 		precision = 0;
 	(print_control->chars_printed) += precision;
@@ -31,7 +32,7 @@ static void	handle_precision(t_printf *print_control,
 }
 
 static void	handle_padding(t_printf *print_control,
-							t_handle_hex *control,
+							t_handle_p *control,
 							t_parse_flags *flag_control)
 {
 	int	padding;
@@ -55,23 +56,27 @@ static void	handle_padding(t_printf *print_control,
 }
 
 static void	handle_left(t_printf *print_control,
-						t_handle_hex *control,
+						t_handle_p *control,
 						t_parse_flags *flag_control)
 {
 	if (flag_control->is_left_padded_with_zeros)
 	{
 		if (unless(flag_control->is_left_justified))
+		ft_putstr("0x");
+		(print_control->chars_printed) += 2;
 			handle_padding(print_control, control, flag_control);
 		handle_precision(print_control, control, flag_control);
 		return ;
 	}
 	if (unless(flag_control->is_left_justified))
 		handle_padding(print_control, control, flag_control);
+	ft_putstr("0x");
+	(print_control->chars_printed) += 2;
 	handle_precision(print_control, control, flag_control);
 }
 
-void		printf_hex(t_printf *print_control,
-						t_handle_hex *control,
+void		printf_p(t_printf *print_control,
+						t_handle_p *control,
 						t_parse_flags *flag_control)
 {
 	handle_left(print_control, control, flag_control);
@@ -81,11 +86,8 @@ void		printf_hex(t_printf *print_control,
 			handle_padding(print_control, control, flag_control);
 		return ;
 	}
-	if (control->is_uppercase)
-		ft_puthex_uppercase(control->print_me);
-	else
-		ft_puthex_downcase(control->print_me);
-	(print_control->chars_printed) += control->digit_count;
+	ft_putnbr_base_ul(control->print_me, DOWNCASE_HEX_BASE);
+	(print_control->chars_printed) += ft_count_digits_hex_ul(control->print_me);
 	if (flag_control->is_left_justified)
 		handle_padding(print_control, control, flag_control);
 }
