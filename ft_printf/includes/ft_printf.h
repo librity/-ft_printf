@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 03:17:10 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 04:09:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 04:23:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <stdarg.h>
 # include <stdbool.h>
 # include <limits.h>
+
+# ifndef ARG_MAX
+#  define ARG_MAX 131072
+# endif
 
 # define NULL_STRING "(null)"
 

@@ -28,7 +28,8 @@
 	"cstdarg": "cpp",
 	"limits.h": "c",
 	"stdarg.h": "c",
-	"unistd.h": "c"
+	"unistd.h": "c",
+	"stdlib.h": "c"
 },
   "editor.detectIndentation": false
 }
