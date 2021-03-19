@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 21:55:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 21:56:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	parse_width(t_parse_flags *control)
 	control->flags = ft_skip_number(control->flags);
 }
 
-char	*skip_modifier_noise(char *digits)
+char		*skip_modifier_noise(char *digits)
 {
 	while (ft_is_plus_or_minus(*digits) || *digits == '0')
 		digits++;
