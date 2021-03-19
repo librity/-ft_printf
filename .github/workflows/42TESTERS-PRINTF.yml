@@ -2,7 +2,7 @@ name: 42TESTERS-PRINTF
 
 on:
   push:
-    branches: [master, main, home-stretch]
+    branches: [main, libft]
 
 jobs:
   build:

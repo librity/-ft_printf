@@ -2,7 +2,7 @@ name: PFT_2019
 
 on:
   push:
-    branches: [master, main, home-stretch]
+    branches: [main, libft]
 
 jobs:
   build:
