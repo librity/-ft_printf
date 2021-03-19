@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/18 23:11:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 23:12:03 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void		printf_percent(t_printf *print_control,
 							t_handle_percent *control,
 							t_parse_flags *flag_control)
 {
+	(void)flag_control;
 	// handle_left(print_control, control, flag_control);
 	ft_putchar(control->print_me);
 	(print_control->chars_printed) += control->char_count;
