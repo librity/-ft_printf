@@ -17,5 +17,5 @@ jobs:
         run: ./test
         working-directory: ./ft_printf/PFT_2019
       - name: results.txt
-        run: cat results.txt
+        run: touch results.txt; cat results.txt
         working-directory: ./ft_printf/PFT_2019
