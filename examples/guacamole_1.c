@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:40:07 by mchardin          #+#    #+#             */
-/*   Updated: 2021/03/18 21:31:13 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/18 22:21:57 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,53 @@ int main()
 	char *s = "-2147483648";
 	char *t = "0x12345678";
 	char *u = "-0";
+
+	int counter = 487;
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0));	  //T347
+	printf("0xc7e1ab0, c7e1ab0, 0xc5729c0, c5729c0, 0x1, 1, 0x0, 0 --- Return : 54\n");
+	printf(" --- Return : %d\n", ft_printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0)); //T347
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 8, (void *)209590960, 8, 209590960, 8, (void *)207038912, 8, 207038912, 8, (void *)1, 8, 1, 8, NULL, 8, 0));
+	printf("0xc7e1ab0,  c7e1ab0, 0xc5729c0,  c5729c0,      0x1,        1,      0x0,        0 --- Return : 80\n");
+	printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 8, (void *)209590960, 8, 209590960, 8, (void *)207038912, 8, 207038912, 8, (void *)1, 8, 1, 8, NULL, 8, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 8, (void *)209590960, 8, 209590960, 8, (void *)207038912, 8, 207038912, 8, (void *)1, 8, 1, 8, NULL, 8, 0));
+	printf("0xc7e1ab0, c7e1ab0 , 0xc5729c0, c5729c0 , 0x1     , 1       , 0x0     , 0        --- Return : 80\n");
+	printf(" --- Return : %d\n", ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 8, (void *)209590960, 8, 209590960, 8, (void *)207038912, 8, 207038912, 8, (void *)1, 8, 1, 8, NULL, 8, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 9, (void *)209590960, 9, 209590960, 9, (void *)207038912, 9, 207038912, 9, (void *)1, 9, 1, 9, NULL, 9, 0));
+	printf("0xc7e1ab0,   c7e1ab0, 0xc5729c0,   c5729c0,       0x1,         1,       0x0,         0 --- Return : 86\n");
+	printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 9, (void *)209590960, 9, 209590960, 9, (void *)207038912, 9, 207038912, 9, (void *)1, 9, 1, 9, NULL, 9, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 9, (void *)209590960, 9, 209590960, 9, (void *)207038912, 9, 207038912, 9, (void *)1, 9, 1, 9, NULL, 9, 0));
+	printf("0xc7e1ab0, c7e1ab0  , 0xc5729c0, c5729c0  , 0x1      , 1        , 0x0      , 0         --- Return : 86\n");
+	printf(" --- Return : %d\n", ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 9, (void *)209590960, 9, 209590960, 9, (void *)207038912, 9, 207038912, 9, (void *)1, 9, 1, 9, NULL, 9, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 10, (void *)209590960, 10, 209590960, 10, (void *)207038912, 10, 207038912, 10, (void *)1, 10, 1, 10, NULL, 10, 0));
+	printf(" 0xc7e1ab0,    c7e1ab0,  0xc5729c0,    c5729c0,        0x1,          1,        0x0,          0 --- Return : 94\n");
+	printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 10, (void *)209590960, 10, 209590960, 10, (void *)207038912, 10, 207038912, 10, (void *)1, 10, 1, 10, NULL, 10, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 10, (void *)209590960, 10, 209590960, 10, (void *)207038912, 10, 207038912, 10, (void *)1, 10, 1, 10, NULL, 10, 0));
+	printf("0xc7e1ab0 , c7e1ab0   , 0xc5729c0 , c5729c0   , 0x1       , 1         , 0x0       , 0          --- Return : 94\n");
+	printf(" --- Return : %d\n", ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 10, (void *)209590960, 10, 209590960, 10, (void *)207038912, 10, 207038912, 10, (void *)1, 10, 1, 10, NULL, 10, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 11, (void *)209590960, 11, 209590960, 11, (void *)207038912, 11, 207038912, 11, (void *)1, 11, 1, 11, NULL, 11, 0));
+	printf("  0xc7e1ab0,     c7e1ab0,   0xc5729c0,     c5729c0,         0x1,           1,         0x0,           0 --- Return : 102\n");
+	printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", 11, (void *)209590960, 11, 209590960, 11, (void *)207038912, 11, 207038912, 11, (void *)1, 11, 1, 11, NULL, 11, 0));
+
+	printf("\n------- %d -------\n", counter++);
+	// printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 11, (void *)209590960, 11, 209590960, 11, (void *)207038912, 11, 207038912, 11, (void *)1, 11, 1, 11, NULL, 11, 0));
+	printf("0xc7e1ab0  , c7e1ab0    , 0xc5729c0  , c5729c0    , 0x1        , 1          , 0x0        , 0           --- Return : 102\n");
+	printf(" --- Return : %d\n", ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", 11, (void *)209590960, 11, 209590960, 11, (void *)207038912, 11, 207038912, 11, (void *)1, 11, 1, 11, NULL, 11, 0));
 
 	a = 12;
 	b = 18;
