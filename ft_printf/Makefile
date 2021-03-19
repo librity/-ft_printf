@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/19 04:22:06 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/19 04:32:15 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT = libft
 
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
+DEBUG_CC_FLAGS = -g
 
 MAKE_EXTERNAL = make -C
 SAFE_MAKEDIR = mkdir -p
