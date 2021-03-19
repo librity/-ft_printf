@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 04:05:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/03/19 00:05:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/03/19 00:48:58 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static void	parse_modifiers(t_parse_flags *control)
 	{
 		control->is_left_padded_with_zeros = true;
 		control->left_padder = '0';
-		control->flags++;
+		while (*(control->flags) == '0')
+			control->flags++;
 	}
 	if (*(control->flags) == '-')
 	{
