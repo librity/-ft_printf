@@ -105,13 +105,13 @@ And also handles almost all the flags:
 - Precision `.`
 - Wildcard arguments `*`
 
-Conversions and flags most respect the format:
+Conversions and flags must respect the format:
 `%[0 and/or -][width][.number]conversion`
 
 Unfortunately there's no rigorous documentation or standard for this function,
 and a lot of its behavior is implementation-specific.
-There's many corner-cases that need to be ironed out by trial and error.
-Since this is a 42 project, I copied the behavior of Apple's `printf`.
+There are many corner-cases that need to be ironed out by trial and error.
+Since this is a 42 project, I replicated the behavior of Apple's `printf`.
 
 [This](https://www.cplusplus.com/reference/cstdio/printf/)
 is best source I could find on the project,
