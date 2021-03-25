@@ -1,4 +1,4 @@
-<h2 align="center">42 São Paulo - ft_printf</h2>
+<h3 align="center">42 São Paulo - ft_printf</h3>
 
 <div align="center">
 
@@ -15,11 +15,11 @@
 
 </div>
 
----
-
 <p align="center"> A partial implementation of printf.
     <br> 
 </p>
+
+---
 
 ## 📝 Table of Contents
 
@@ -31,6 +31,28 @@
 - [42 São Paulo](#ft_sp)
 
 ## 🧐 About <a name = "about"></a>
+
+This is the third project I did at 42 São Paulo:
+an implementation of the famous `printf` function from scratch.
+
+It was a big project and my first milestone at 42:
+I felt properly challenged and out of my comfort zone throughout most of it.
+It taught me how to organize code effectively in C,
+and to separate responsibilities without resorting to
+Classes and Objects (which is what I'm used to).
+
+I managed to do it without using a single `malloc` or `free`,
+but with pointers to stack structs that I pass around to each handler.
+There's an isolated struct, handler, and formatter for each conversion.
+
+The only thing that conversion "modules" share are
+the flags parser and the utility functions from libft.
+I did it this way so I didn't need to worry about breaking the formatting
+of other conversions as I tinkered with the rules.
+
+This was a really good decision since there are many formatting exceptions
+and flag combinations that vary from conversion to conversion,
+and it sure saved me some headaches.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -73,7 +95,7 @@ It handles most conversions:
 - Unsigned decimal integer `%u`
 - Uppercase unsigned hexadecimal `%X`
 - Lowercase unsigned hexadecimal `%x`
-- Pointer/ hexadecmial memory address `%p`
+- Pointer/ hexadecimal memory address `%p`
 
 And also handles almost all the flags:
 
@@ -115,8 +137,8 @@ Part of the larger [42 Network](https://www.42.fr/42-network/),
 that offers a healthy alternative to traditional education:
 
 - It doesn't have any teachers or classrooms.
-- Students learn from and correct eachother's work (peer-to-peer learning).
-- The methodology develops technical and social skills.
+- Students learn from and correct each other's work (peer-to-peer learning).
+- The method develops technical and social skills.
 - It's completely free to anyone that passes its selection process - **The Piscine**
 
 It's an amazing project, and I'm enjoying every second of it.
