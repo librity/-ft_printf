@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: make
         run: make
-        working-directory: ./ft_printf/42TESTERS-PRINTF/srcs
+        working-directory: ./testers/42TESTERS-PRINTF/srcs
       - name: runtest
         run: bash ./runtest.sh
-        working-directory: ./ft_printf/42TESTERS-PRINTF
+        working-directory: ./testers/42TESTERS-PRINTF

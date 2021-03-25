@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: make
         run: make re
-        working-directory: ./ft_printf/PFT_2019
+        working-directory: ./testers/PFT_2019
       - name: run_test
         run: ./test
-        working-directory: ./ft_printf/PFT_2019
+        working-directory: ./testers/PFT_2019
       - name: results.txt
         run: touch results.txt; cat results.txt
-        working-directory: ./ft_printf/PFT_2019
+        working-directory: ./testers/PFT_2019
