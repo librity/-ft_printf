@@ -29,7 +29,8 @@
 	"limits.h": "c",
 	"stdarg.h": "c",
 	"unistd.h": "c",
-	"stdlib.h": "c"
+	"stdlib.h": "c",
+	"stdint.h": "c"
 },
   "editor.detectIndentation": false
 }
