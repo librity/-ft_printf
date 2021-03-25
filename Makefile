@@ -6,13 +6,11 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/19 04:32:15 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/25 16:48:39 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-
-LIBFT = libft
 
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
@@ -20,7 +18,6 @@ DEBUG_CC_FLAGS = -g
 
 MAKE_EXTERNAL = make -C
 SAFE_MAKEDIR = mkdir -p
-COPY_LIBFT = cp libft/libft.a
 ARCHIVE_AND_INDEX = ar -rcs
 
 REMOVE = /bin/rm -f
@@ -29,6 +26,11 @@ REMOVE_RECURSIVE = /bin/rm -rf
 OBJECTS_PATH = ./objects
 SOURCES_PATH = ./sources
 INCLUDES_PATH = ./includes
+LIBS_PATH = ./libs
+
+LIBFT = libft
+LIBFT_PATH = $(LIBS_PATH)/$(LIBFT)
+COPY_LIBFT = cp $(LIBFT_PATH)/libft.a
 
 HEADER_FILE = ft_printf.h
 HEADER = $(addprefix $(INCLUDES_PATH)/,$(HEADER_FILE))
@@ -58,7 +60,7 @@ $(NAME): libft $(OBJECTS) $(HEADER)
 	$(ARCHIVE_AND_INDEX) $(NAME) $(OBJECTS) 
 
 libft:
-	$(MAKE_EXTERNAL) $(LIBFT)
+	$(MAKE_EXTERNAL) $(LIBFT_PATH)
 	$(COPY_LIBFT) ./$(NAME)
 
 $(OBJECTS_PATH)/%.o: $(SOURCES_PATH)/%.c $(HEADER)
@@ -70,7 +72,7 @@ example: $(NAME)
 	$(EXECUTE_EXAMPLE)
 
 libft_fclean:
-	$(MAKE_EXTERNAL) $(LIBFT) fclean
+	$(MAKE_EXTERNAL) $(LIBFT_PATH) fclean
 
 clean:
 	$(REMOVE) $(OBJECTS)

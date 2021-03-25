@@ -41,7 +41,7 @@
 *.su
 *.idb
 *.pdb
-ft_printf/example.c
+example.c
 
 # Kernel Module Compile Results
 *.mod*

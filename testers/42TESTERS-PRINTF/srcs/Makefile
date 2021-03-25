@@ -1,6 +1,6 @@
 PREFIXE		= ./
 
-LIBPATH		= ../../../ft_printf
+LIBPATH		= ../../..
 
 SRCS		= $(addprefix ${PREFIXE}, main_tester.c)
 
