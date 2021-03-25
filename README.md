@@ -76,6 +76,7 @@ any of the examples files:
 ```bash
 $ cp examples/example_1.c example.c
 $ gcc -g -I ./includes example.c libftprintf.a
+$ ./a.out
 ```
 
 ## 🎈 Usage <a name="usage"></a>
