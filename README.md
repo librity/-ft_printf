@@ -46,7 +46,7 @@ but with pointers to stack structs that I pass around to each handler.
 There's an isolated struct, handler, and formatter for each conversion.
 
 The only thing that conversion "modules" share are
-the flags parser and the utility functions from libft.
+the flag parser and the utility functions from libft.
 I did it this way so I didn't need to worry about breaking the formatting
 of other conversions as I tinkered with the rules.
 
