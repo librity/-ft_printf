@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/25 16:48:39 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/25 20:00:22 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ example_clean: fclean
 re: fclean all
 
 norme:
-	norminette ./libft/
+	norminette $(LIBS_PATH)
 	@echo ----------------------
 	norminette $(INCLUDES_PATH)
 	@echo ----------------------
