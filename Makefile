@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 02:58:38 by lpaulo-m@st       #+#    #+#              #
-#    Updated: 2021/03/25 20:33:16 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/25 20:56:17 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-DEBUG_CC_FLAGS = -g
+CC_DEBUG_FLAGS = -g
 
 MAKE_EXTERNAL = make -C
 SAFE_MAKEDIR = mkdir -p
@@ -68,7 +68,7 @@ $(OBJECTS_PATH)/%.o: $(SOURCES_PATH)/%.c $(HEADER)
 	$(CC) $(CC_FLAGS) -I $(INCLUDES_PATH) -o $@ -c $<
 
 example: $(NAME)
-	$(CC) $(DEBUG_CC_FLAGS) -I $(INCLUDES_PATH) $(EXAMPLE_MAIN) $(NAME)
+	$(CC) $(CC_DEBUG_FLAGS) -I $(INCLUDES_PATH) $(EXAMPLE_MAIN) $(NAME)
 	$(EXECUTE_EXAMPLE)
 
 libft_fclean:
