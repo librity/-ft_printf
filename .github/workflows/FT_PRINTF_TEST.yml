@@ -1,8 +1,6 @@
 name: FT_PRINTF_TEST
 
-on:
-  push:
-    branches: [main, libft]
+on: push
 
 jobs:
   build:

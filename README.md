@@ -56,11 +56,11 @@ and it sure saved me some headaches.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-### Prerequisites
+### ⚙️ Prerequisites
 
 All you need is a shell and a C compiler like `gcc` or `clang`.
 
-### Installing
+### 🖥️ Installing
 
 To compile the entire thing just clone the repo and run `make`:
 
@@ -71,7 +71,7 @@ $ make
 ```
 
 This will generate a `libftprintf.a` archive, which you can compile with
-any of the examples files:
+any of the example files:
 
 ```bash
 $ cp examples/example_1.c example.c
@@ -142,4 +142,4 @@ that offers a healthy alternative to traditional education:
 - The method develops technical and social skills.
 - It's completely free to anyone that passes its selection process - **The Piscine**
 
-It's an amazing project, and I'm enjoying every second of it.
+It's an amazing school, and I'm enjoying every second of it.

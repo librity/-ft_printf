@@ -1,8 +1,6 @@
 name: PFT_2019
 
-on:
-  push:
-    branches: [main, libft]
+on: push
 
 jobs:
   build:
