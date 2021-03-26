@@ -6,23 +6,30 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 21:58:14 by lpaulo-m          #+#    #+#              #
-#    Updated: 2021/03/19 02:26:36 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2021/03/26 02:45:30 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
+OBJECTS_PATH = ./objects
+SOURCES_PATH = ./sources
+INCLUDES_PATH = ../../includes
+
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-DEBUG_CC_FLAGS = -g -Wall -Wextra -Werror
+CC_DEBUG_FLAGS = -g
+
+SAFE_MAKEDIR = mkdir -p
+ARCHIVE_AND_INDEX = ar -rcs
 
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
-ARCHIVE_AND_INDEX = ar -rcs
 
-HEADER = libft.h
+HEADER_FILE = ft_printf.h
+HEADER = $(addprefix $(INCLUDES_PATH)/,$(HEADER_FILE))
 
-SOURCES = 	unless.c \
+SOURCE_FILES = unless.c \
 	\
 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 	ft_memmove.c ft_memchr.c ft_memcmp.c \
@@ -72,22 +79,21 @@ SOURCES = 	unless.c \
 	ft_skip_digits.c ft_skip_number.c \
 	\
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-OBJECTS = $(subst .c,.o,$(SOURCES))
+	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
+	\
+	ft_get_next_line.c
+SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 
-EXAMPLE_MAIN = example.c
-EXECUTE_EXAMPLE = time ./a.out
-EXAMPLE_GARBAGE = a.out a.out.dSYM
+OBJECTS = $(addprefix $(OBJECTS_PATH)/,$(subst .c,.o,$(SOURCE_FILES)))
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(HEADER)
-	$(CC) $(CC_FLAGS) -c $(SOURCES)
-	$(ARCHIVE_AND_INDEX) $(NAME) $(OBJECTS) 
+$(NAME): $(OBJECTS)
+	$(ARCHIVE_AND_INDEX) $(NAME) $(OBJECTS)
 
-example: $(NAME)
-	$(CC) $(DEBUG_CC_FLAGS) $(EXAMPLE_MAIN) $(NAME)
-	$(EXECUTE_EXAMPLE)
+$(OBJECTS_PATH)/%.o: $(SOURCES_PATH)/%.c
+	$(SAFE_MAKEDIR) $(OBJECTS_PATH)
+	$(CC) $(CC_FLAGS) -I $(INCLUDES_PATH) -o $@ -c $<
 
 clean:
 	$(REMOVE) $(OBJECTS)
@@ -95,9 +101,6 @@ clean:
 fclean: clean
 	$(REMOVE) $(NAME)
 
-example_clean: fclean
-	$(REMOVE_RECURSIVE) $(EXAMPLE_GARBAGE)
-
 re: fclean all
 
-.PHONY: all example re clean fclean example_clean
+.PHONY: all re clean fclean norme git gitm
