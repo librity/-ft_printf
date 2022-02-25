@@ -2,16 +2,22 @@
 
 <div align="center">
 
-[![Norminette v3](https://github.com/librity/ft_printf/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/norminette_v3.yml)
-[![42TESTERS-PRINTF](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml)
-[![FT_PRINTF_TEST](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml)
-[![PFT_2019](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml)
 ![42 São Paulo](https://img.shields.io/badge/42-SP-1E2952)
 ![License](https://img.shields.io/github/license/librity/ft_printf?color=yellow)
 ![Code size in bytes](https://img.shields.io/github/languages/code-size/librity/ft_printf?color=blue)
 ![Lines of code](https://img.shields.io/tokei/lines/github/librity/ft_printf?color=blueviolet)
 ![Top language](https://img.shields.io/github/languages/top/librity/ft_printf?color=ff69b4)
 ![Last commit](https://img.shields.io/github/last-commit/librity/ft_printf?color=orange)
+
+</div>
+
+<div align="center">
+
+[![Norminette v3](https://github.com/librity/ft_printf/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/norminette_v3.yml)
+[![Build](https://github.com/librity/ft_printf/actions/workflows/build.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/build.yml)
+[![FT_PRINTF_TEST](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml)
+[![42TESTERS-PRINTF](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml)
+[![PFT_2019](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml)
 
 </div>
 
