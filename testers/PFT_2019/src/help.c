@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfielder <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:57:57 by gfielder          #+#    #+#             */
-/*   Updated: 2020/06/15 16:49:15 by gfielder         ###   ########.fr       */
+/*   Updated: 2022/02/25 13:25:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ const t_help_entry	help_index[] = {
 	{"how-it-works", help_how_it_works},
 	{"how_it_works", help_how_it_works},
 	{"how it works", help_how_it_works},
-	
+
 	{"contact", help_contact},
 	{"help", help_contact},
 	{"support", help_contact},
-	
+
 	{"t", help_timeout},
 	{"T", help_timeout},
 	{"timeout", help_timeout},
@@ -157,7 +157,7 @@ const t_help_entry	help_index[] = {
 
 	{"SINGLE_NUMBER_SINGLE_TEST", help_single_number_single_test},
 
-	{"LIBFTPRINTF_DIR", help_libftprintf_dir},
+	{"ft_printf_DIR", help_ft_printf_dir},
 
 	{"troubleshooting", help_troubleshooting},
 	{"troubleshoot", help_troubleshooting},
@@ -697,9 +697,9 @@ void		help_single_test_turns_on_lldb_compat_mode(void)
 	help_paragraph("You have reached a help section that has not yet been written. Please refer to the readme");
 }
 
-void		help_libftprintf_dir(void)
+void		help_ft_printf_dir(void)
 {
-	help_header("LIBFTPRINTF_DIR");
+	help_header("ft_printf_DIR");
 	help_paragraph("This option in `options-config.ini` allows for nonstandard installations. You can specify the path in which your ft_printf project can be found.");
 }
 

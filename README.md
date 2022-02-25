@@ -130,8 +130,9 @@ Github Actions by [@wblech](https://github.com/wblech/42_github_actions)
 
 ## 🐙 Github Actions <a name = "github_actions"></a>
 
-[Norminette Github Action](https://github.com/AdrianWR/libft/blob/master/.github/workflows/norminette.yaml)
-by [@AdrianWR](https://github.com/AdrianWR)
+Norminette v3 github action
+based on [@AdrianWR](https://github.com/AdrianWR)'s
+[implementation](https://github.com/AdrianWR/libft/blob/master/.github/workflows/norminette.yaml).
 
 ## 🛸 42 São Paulo <a name = "ft_sp"></a>
 

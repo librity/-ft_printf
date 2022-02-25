@@ -14,7 +14,7 @@ $ft_printf_dir = $argv[1];
 
 //Write ft_printf directory to an override config file based on 42fc configuration
 $conf = file_get_contents($conf42fc_root."/42fc.conf");
-$conf = preg_replace('/LIBFTPRINTF_DIR=.*$/m', "LIBFTPRINTF_DIR=".$ft_printf_dir, $conf);
+$conf = preg_replace('/ft_printf_DIR=.*$/m', "ft_printf_DIR=".$ft_printf_dir, $conf);
 $fout = fopen($pft_root."/options-config.ini.override", "w");
 fwrite($fout, $conf);
 fclose($fout);

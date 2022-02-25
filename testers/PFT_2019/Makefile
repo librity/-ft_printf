@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    printftester2000 Makefile                          :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gfielder <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/28 21:19:45 by gfielder          #+#    #+#              #
-#    Updated: 2019/07/08 22:40:24 by gfielder         ###   ########.fr        #
+#    Updated: 2022/02/25 13:25:43 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,15 +61,15 @@ TEST_HISTORY_MOD_TIME:=0
 endif
 
 # testing:
-	# @echo "$(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME)"
+	# @echo "$(ft_printf_DIR)/$(ft_printf_NAME)"
 
 all: $(TEST_ONAME)
 
-$(TEST_ONAME): $(SRC_TEST) $(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME) $(LIB) test_index check_history_remove
+$(TEST_ONAME): $(SRC_TEST) $(ft_printf_DIR)/$(ft_printf_NAME) $(LIB) test_index check_history_remove
 	@rm -f $(TEST_OUT_ACTUAL)
 	@rm -f $(TEST_OUT_EXPECTED)
 	@rm -f $(TEST_RESULTS)
-	@$(CC) $(CFLAGS) $(INC) $(TEST_DEFINES) -o $(TEST_ONAME) $(LIB)  $(SRC_TEST) $(INDEXED_TESTS) $(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME)
+	@$(CC) $(CFLAGS) $(INC) $(TEST_DEFINES) -o $(TEST_ONAME) $(LIB)  $(SRC_TEST) $(INDEXED_TESTS) $(ft_printf_DIR)/$(ft_printf_NAME)
 	@./src/usage_statistics.php &>/dev/null &
 	@echo "\x1B[32m=============================================================\x1B[0m"
 	@echo "\x1B[32m  printftester2000 (aka PFT)\x1B[0m - \x1B[2mmade by gfielder@42.us.org\x1B[0m"
@@ -96,8 +96,8 @@ check_history_remove:
         fi \
 	fi
 
-$(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME):
-	@make -C $(LIBFTPRINTF_DIR) > /dev/null 2>&1
+$(ft_printf_DIR)/$(ft_printf_NAME):
+	@make -C $(ft_printf_DIR) > /dev/null 2>&1
 
 $(LIBFT_DIR_PATH)/$(LIBFT_NAME):
 	@make -C $(LIBFT_DIR_PATH) > /dev/null 2>&1
@@ -117,8 +117,8 @@ fclean:
 	@rm -rf src/show_disabled_postprocess
 
 re:
-	@if [ $(MAKE_RE_ALSO_REBUILDS_LIBFTPRINTF) -eq 1 ] ; then \
-		make -C $(LIBFTPRINTF_DIR) fclean > /dev/null 2>&1 ; \
+	@if [ $(MAKE_RE_ALSO_REBUILDS_ft_printf) -eq 1 ] ; then \
+		make -C $(ft_printf_DIR) fclean > /dev/null 2>&1 ; \
 	fi
 	@make fclean
 	@make all

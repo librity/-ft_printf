@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfielder <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 21:14:31 by gfielder          #+#    #+#             */
-/*   Updated: 2019/06/18 14:14:30 by gfielder         ###   ########.fr       */
+/*   Updated: 2022/02/25 13:25:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		help_leaks_test_cmd(void);
 void		help_test_fail_logging_maxbytes(void);
 void		help_single_number_single_test(void);
 void		help_single_test_turns_on_lldb_compat_mode(void);
-void		help_libftprintf_dir(void);
+void		help_ft_printf_dir(void);
 void		help_troubleshooting(void);
 void		help_conf(void);
 void		help_list_index(void);
