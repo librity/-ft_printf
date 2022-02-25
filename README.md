@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![norminette](https://github.com/librity/ft_printf/actions/workflows/norminette.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/norminette.yml)
+[![Norminette v3](https://github.com/librity/ft_printf/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/norminette_v3.yml)
 [![42TESTERS-PRINTF](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/42TESTERS-PRINTF.yml)
 [![FT_PRINTF_TEST](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/FT_PRINTF_TEST.yml)
 [![PFT_2019](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml/badge.svg)](https://github.com/librity/ft_printf/actions/workflows/PFT_2019.yml)
@@ -15,8 +15,8 @@
 
 </div>
 
-<p align="center"> A partial implementation of printf.
-    <br> 
+<p align="center"> A partial implementation of printf in pure C.
+    <br>
 </p>
 
 ---
@@ -46,7 +46,7 @@ but with pointers to stack structs that I pass around to each handler.
 There's an isolated struct, handler, and formatter for each conversion.
 
 The only thing that conversion "modules" share are
-the flag parser and the utility functions from libft.
+the flag parser and pure utility functions.
 I did it this way so I didn't need to worry about breaking the formatting
 of other conversions as I tinkered with the rules.
 
@@ -70,12 +70,12 @@ $ cd ft_printf
 $ make
 ```
 
-This will generate a `libftprintf.a` archive, which you can compile with
+This will generate a `ft_printf.a` archive, which you can compile with
 any of the example files:
 
 ```bash
 $ cp examples/example_1.c example.c
-$ gcc -g -I ./includes example.c libftprintf.a
+$ gcc -g -I ./includes example.c ft_printf.a
 $ ./a.out
 ```
 
@@ -89,14 +89,16 @@ ft_printf("'%-10s'\n", "Hello, world!");
 
 It handles most conversions:
 
-- Percent char `%%`
-- Unsigned char `%c`
-- Signed decimal integer `%i` or `%d`
-- Null-terminated string `%s`
-- Unsigned decimal integer `%u`
-- Uppercase unsigned hexadecimal `%X`
-- Lowercase unsigned hexadecimal `%x`
-- Pointer/ hexadecimal memory address `%p`
+- Percent `char`: `%%`
+- Unsigned `char`: `%c`
+- Signed decimal `int`: `%i` or `%d`
+- Null-terminated `char *`: `%s`
+- Unsigned decimal `int`: `%u`
+- Uppercase hexadecimal `unsigned int`: `%X`
+- Lowercase hexadecimal `unsigned int`: `%x`
+- Pointer/hexadecimal memory address `unsigned long`: `%p`
+- `float` and `double`: `%f`
+- `long double`: `%Lf`
 
 And also handles almost all the flags:
 
