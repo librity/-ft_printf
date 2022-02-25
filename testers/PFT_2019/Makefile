@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: lpaulo-m <lpaulo-mstudent.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/28 21:19:45 by gfielder          #+#    #+#              #
-#    Updated: 2022/02/25 13:25:43 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/02/25 13:39:02 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,34 +61,34 @@ TEST_HISTORY_MOD_TIME:=0
 endif
 
 # testing:
-	# @echo "$(ft_printf_DIR)/$(ft_printf_NAME)"
+	# echo "$(ft_printf_DIR)/$(ft_printf_NAME)"
 
 all: $(TEST_ONAME)
 
-$(TEST_ONAME): $(SRC_TEST) $(ft_printf_DIR)/$(ft_printf_NAME) $(LIB) test_index check_history_remove
-	@rm -f $(TEST_OUT_ACTUAL)
-	@rm -f $(TEST_OUT_EXPECTED)
-	@rm -f $(TEST_RESULTS)
-	@$(CC) $(CFLAGS) $(INC) $(TEST_DEFINES) -o $(TEST_ONAME) $(LIB)  $(SRC_TEST) $(INDEXED_TESTS) $(ft_printf_DIR)/$(ft_printf_NAME)
-	@./src/usage_statistics.php &>/dev/null &
-	@echo "\x1B[32m=============================================================\x1B[0m"
-	@echo "\x1B[32m  printftester2000 (aka PFT)\x1B[0m - \x1B[2mmade by gfielder@42.us.org\x1B[0m"
-	@echo "\x1B[32m=============================================================\x1B[0m"
-	@echo "  \x1B[1;36m$(shell cat $(UNIT_TEST_FILE) | grep -c "^int\s*[a-zA-Z0-9_]*(void)" | tr -d " \n\t") \x1B[0mout of \x1B[1;33m$(shell cat $(UNIT_TEST_FILE) | grep -c "^\s*int\s*[a-zA-Z0-9_]*(void)" | tr -d " \n\t")\x1B[0m tests are enabled.\x1B[0;0;0m"
-	@echo "  \x1B[4mDirections\x1B[0m:"
-	@echo "    \x1B[36m./test [query]\x1B[0m          to run tests"
-	@echo "    \x1B[36m./test help\x1B[0m             to see examples and other help"
+$(TEST_ONAME): $(SRC_TEST) $(ft_printf_DIR)/$(ft_printf_NAME) test_index check_history_remove
+	rm -f $(TEST_OUT_ACTUAL)
+	rm -f $(TEST_OUT_EXPECTED)
+	rm -f $(TEST_RESULTS)
+	$(CC) $(CFLAGS) $(INC) $(TEST_DEFINES) -o $(TEST_ONAME)  $(SRC_TEST) $(INDEXED_TESTS) $(ft_printf_DIR)/$(ft_printf_NAME)
+	./src/usage_statistics.php &>/dev/null &
+	echo "\x1B[32m=============================================================\x1B[0m"
+	echo "\x1B[32m  printftester2000 (aka PFT)\x1B[0m - \x1B[2mmade by gfielder42.us.org\x1B[0m"
+	echo "\x1B[32m=============================================================\x1B[0m"
+	echo "  \x1B[1;36m$(shell cat $(UNIT_TEST_FILE) | grep -c "^int\s*[a-zA-Z0-9_]*(void)" | tr -d " \n\t") \x1B[0mout of \x1B[1;33m$(shell cat $(UNIT_TEST_FILE) | grep -c "^\s*int\s*[a-zA-Z0-9_]*(void)" | tr -d " \n\t")\x1B[0m tests are enabled.\x1B[0;0;0m"
+	echo "  \x1B[4mDirections\x1B[0m:"
+	echo "    \x1B[36m./test [query]\x1B[0m          to run tests"
+	echo "    \x1B[36m./test help\x1B[0m             to see examples and other help"
 
 
 $(INDEXED_TESTS): test_index
 
 .INTERMEDIATE: test_index
 test_index: $(UNIT_TEST_FILE)
-	@php src/create_index.php $(UNIT_TEST_FILE) $(INDEXED_TESTS)
+	php src/create_index.php $(UNIT_TEST_FILE) $(INDEXED_TESTS)
 
 .INTERMEDIATE: check_history_remove
 check_history_remove:
-	@if [ $(REMOVE_HISTORY_WHEN_TESTS_NEW) -eq 1 ] ; then \
+	if [ $(REMOVE_HISTORY_WHEN_TESTS_NEW) -eq 1 ] ; then \
         if ! [ -z "$(UNIT_TESTS_MOD_TIME)" ] ; then \
     		if [ $(UNIT_TESTS_MOD_TIME) -gt $(TEST_HISTORY_MOD_TIME) ] ; then \
     			rm -rf $(TEST_LOG) ; \
@@ -97,28 +97,25 @@ check_history_remove:
 	fi
 
 $(ft_printf_DIR)/$(ft_printf_NAME):
-	@make -C $(ft_printf_DIR) > /dev/null 2>&1
+	make -C $(ft_printf_DIR) > /dev/null 2>&1
 
 $(LIBFT_DIR_PATH)/$(LIBFT_NAME):
-	@make -C $(LIBFT_DIR_PATH) > /dev/null 2>&1
+	make -C $(LIBFT_DIR_PATH) > /dev/null 2>&1
 
 clean:
-	@rm -f $(INDEXED_TESTS)
-	@rm -f $(TEST_OUT_ACTUAL)
-	@rm -f $(TEST_OUT_EXPECTED)
-	@rm -f $(TEST_RESULTS)
-	@rm -rf src/show_disabled_postprocess
-	@rm -f src/*.bak
+	rm -f $(INDEXED_TESTS)
+	rm -f $(TEST_OUT_ACTUAL)
+	rm -f $(TEST_OUT_EXPECTED)
+	rm -f $(TEST_RESULTS)
+	rm -rf src/show_disabled_postprocess
+	rm -f src/*.bak
 
 fclean:
-	@make clean
-	@rm -rf $(TEST_ONAME).dSYM
-	@rm -rf $(TEST_ONAME)
-	@rm -rf src/show_disabled_postprocess
+	make clean
+	rm -rf $(TEST_ONAME).dSYM
+	rm -rf $(TEST_ONAME)
+	rm -rf src/show_disabled_postprocess
 
 re:
-	@if [ $(MAKE_RE_ALSO_REBUILDS_ft_printf) -eq 1 ] ; then \
-		make -C $(ft_printf_DIR) fclean > /dev/null 2>&1 ; \
-	fi
-	@make fclean
-	@make all
+	make fclean
+	make all

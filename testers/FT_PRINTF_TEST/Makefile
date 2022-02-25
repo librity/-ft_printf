@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/06 18:13:15 by cacharle          #+#    #+#              #
-#    Updated: 2021/03/25 16:43:21 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/02/25 13:33:33 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FT_PRINTF_PATH = ../..
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Wno-trigraphs  # Adding -std=c99 causes crash
-LDFLAGS = -L$(FT_PRINTF_PATH) -lftprintf
+LDFLAGS = ${FT_PRINTF_PATH}/ft_printf.a
 
 NAME = ft_printf_test
 CHECK_LEAKS_NAME = check_leaks

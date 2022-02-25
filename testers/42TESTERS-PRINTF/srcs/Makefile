@@ -16,14 +16,14 @@ RM			= rm -f
 
 AR			= ar rc
 
-LIB			= -L${LIBPATH} -lftprintf
+LIB			= ${LIBPATH}/ft_printf.a
 
 PRINTF_MAKE	= ${MAKE} -C ${LIBPATH}
 
 $(NAME):	${OBJS} printmake
 			${CC} ${CFLAGS} ${OBJS} ${LIB} -o ${NAME}
 
-printmake:	
+printmake:
 			${PRINTF_MAKE}
 
 all:		${NAME}
