@@ -6,18 +6,16 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 21:58:19 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/02/25 13:09:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/02/25 13:17:44 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stdlib.h>
-# include <sys/resource.h>
 # include <unistd.h>
 
 /******************************************************************************\
